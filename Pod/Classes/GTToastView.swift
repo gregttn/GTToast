@@ -8,7 +8,7 @@
 
 public class GTToastView: UIView {
     internal var messageLabel: UILabel!
-    internal let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
+    private let contentInsets: UIEdgeInsets
 
     init() {
         fatalError("init(coder:) has not been implemented")
@@ -18,7 +18,8 @@ public class GTToastView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, color: UIColor = UIColor.blackColor()) {
+    public init(frame: CGRect, contentInsets: UIEdgeInsets = UIEdgeInsets(), color: UIColor = UIColor.blackColor()) {
+        self.contentInsets = contentInsets
         super.init(frame: frame)
         
         self.backgroundColor = color.colorWithAlphaComponent(0.8)
@@ -41,6 +42,7 @@ public class GTToastView: UIView {
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
         label.font = UIFont.systemFontOfSize(12.0)
+        label.numberOfLines = 0
         
         return label
     }

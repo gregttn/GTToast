@@ -7,18 +7,29 @@
 //
 
 public class GTToast {
-    internal static let padding: CGFloat = 5.0
-    internal static let defaultHeight: CGFloat = 60.0
+    private static let margin: CGFloat = 5.0
+    private static let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
     
     public static func create(message: String) -> GTToastView {
-        return GTToastView(frame: createFrame())
+        let toast = GTToastView(frame: createFrame(message), contentInsets: GTToast.contentInsets)
+        toast.messageLabel.text = message
+        
+        return toast
     }
     
-    private static func createFrame() -> CGRect {
+    private static func createFrame(message: String) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds
-        let y = screenSize.height - GTToast.padding - GTToast.defaultHeight
-        let width = screenSize.width - 2 * GTToast.padding
+        let width = screenSize.width - 2 * GTToast.margin
         
-        return CGRectMake(GTToast.padding, y, width, GTToast.defaultHeight)
+        let labelHeight = ceil(
+                UIFont.systemFontOfSize(12.0)
+                    .sizeFor(message, constrain: CGSizeMake(width - GTToast.contentInsets.left + GTToast.contentInsets.right, 0))
+                    .height
+        )
+        
+        let height = labelHeight + GTToast.contentInsets.top + GTToast.contentInsets.bottom
+        let y = screenSize.height - GTToast.margin - height
+        
+        return CGRectMake(GTToast.margin, y, width, height)
     }
 }

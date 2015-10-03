@@ -15,18 +15,27 @@ class GTToastTests: XCTestCase {
     }
     
     func testCreate_shouldCreateWithAppropriateFrame() {
-        let toastView = GTToast.create("")
+        let message = "Test Message"
+        let toastView = GTToast.create(message)
         
-        XCTAssertEqual(toastView.frame, expectedFrame())
+        XCTAssertEqual(toastView.frame, expectedFrame(message))
     }
     
-    private func expectedFrame() -> CGRect {
+    private func expectedFrame(message: String) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        let padding: CGFloat = 5.0
-        let height: CGFloat = 60.0
-        let yOffset: CGFloat = screenSize.height - height - padding
+        let margin: CGFloat = 5.0
+        let contentInset: CGFloat = 3.0
+        let labelSize = NSString(string: message).boundingRectWithSize(
+                CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset, 0),
+                options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+                attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
+                context: nil)
+            .size
         
-        return CGRectMake(padding, yOffset, screenSize.width - 2 * padding, height)
+        let height: CGFloat = ceil(labelSize.height) + 2 * contentInset
+        let yOffset: CGFloat = screenSize.height - height - margin
+        
+        return CGRectMake(margin, yOffset, screenSize.width - 2 * margin, height)
     }
 }

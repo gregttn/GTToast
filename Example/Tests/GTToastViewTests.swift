@@ -44,7 +44,7 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testInit_shouldHaveMessageLabelWithCorrectFrame() {
-        toast = GTToastView(frame: CGRectMake(100, 100, 100, 100))
+        toast = GTToastView(frame: CGRectMake(100, 100, 100, 100), contentInsets: UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0))
         let messageLabel = toast.subviews[0]
         
         XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
@@ -63,6 +63,7 @@ class GTToastViewTests: XCTestCase {
         XCTAssertTrue(CGColorEqualToColor(messageLabel.textColor.CGColor, UIColor.whiteColor().CGColor))
         XCTAssertEqual(messageLabel.textAlignment, NSTextAlignment.Center)
         XCTAssertEqual(messageLabel.font, UIFont.systemFontOfSize(12.0))
+        XCTAssertEqual(messageLabel.numberOfLines, 0)
     }
     
     func testShow_shouldAddViewToWindow() {
