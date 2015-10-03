@@ -7,8 +7,8 @@
 //
 
 public class GTToastView: UIView {
-    internal var messageLabel: UILabel!
-    private let contentInsets: UIEdgeInsets
+    private var messageLabel: UILabel!
+    private let config: GTToastConfig
 
     init() {
         fatalError("init(coder:) has not been implemented")
@@ -18,11 +18,11 @@ public class GTToastView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, contentInsets: UIEdgeInsets = UIEdgeInsets(), color: UIColor = UIColor.blackColor()) {
-        self.contentInsets = contentInsets
+    public init(frame: CGRect, config: GTToastConfig) {
+        self.config = config
         super.init(frame: frame)
         
-        self.backgroundColor = color.colorWithAlphaComponent(0.8)
+        self.backgroundColor = config.backgroundColor.colorWithAlphaComponent(0.8)
         self.layer.cornerRadius = 3.0
         
         messageLabel = createLabel()
@@ -31,18 +31,19 @@ public class GTToastView: UIView {
 
     private func createLabel() -> UILabel {
         let labelFrame = CGRectMake(
-                contentInsets.left,
-                contentInsets.top,
-                frame.size.width - contentInsets.right - contentInsets.left,
-                frame.size.height - contentInsets.top - contentInsets.right
+                config.contentInsets.left,
+                config.contentInsets.top,
+                frame.size.width - config.contentInsets.right - config.contentInsets.left,
+                frame.size.height - config.contentInsets.top - config.contentInsets.right
         )
         
         let label = UILabel(frame: labelFrame)
         label.backgroundColor = UIColor.clearColor()
         label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.whiteColor()
-        label.font = UIFont.systemFontOfSize(12.0)
+        label.textColor = config.textColor
+        label.font = config.font
         label.numberOfLines = 0
+        label.text = config.message
         
         return label
     }
