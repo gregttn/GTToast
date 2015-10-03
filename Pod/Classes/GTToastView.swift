@@ -7,7 +7,6 @@
 //
 
 public class GTToastView: UIView {
-
     init() {
         fatalError("init(coder:) has not been implemented")
     }
@@ -19,7 +18,8 @@ public class GTToastView: UIView {
     public init(frame: CGRect, color: UIColor = UIColor.blackColor()) {
         super.init(frame: frame)
         
-        self.backgroundColor = color
+        self.backgroundColor = color.colorWithAlphaComponent(0.8)
+        self.layer.cornerRadius = 3.0
     }
 
     public func show() {

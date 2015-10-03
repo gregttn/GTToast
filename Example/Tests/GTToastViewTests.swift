@@ -27,14 +27,20 @@ class GTToastViewTests: XCTestCase {
     
     func testInit_shouldHaveBlackBackgroundWhenNotProvided() {
         toast = GTToastView(frame: frame)
+        let expectedColor = UIColor.blackColor().colorWithAlphaComponent(0.8).CGColor
         
-        XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, UIColor.blackColor().CGColor))
+        XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, expectedColor))
     }
     
     func testInit_shouldHaveCorrectBackgroundColor() {
         toast = GTToastView(frame: frame, color: UIColor.redColor())
-        
-        XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, UIColor.redColor().CGColor))
+        let expectedColor = UIColor.redColor().colorWithAlphaComponent(0.8).CGColor
+
+        XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, expectedColor))
+    }
+    
+    func testInit_shouldHaveRoundedCorners() {
+        XCTAssertEqual(toast.layer.cornerRadius, CGFloat(3.0))
     }
     
     func testShow_shouldAddViewToWindow() {
