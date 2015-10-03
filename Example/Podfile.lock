@@ -1,0 +1,14 @@
+PODS:
+  - GTToast (0.1.0)
+
+DEPENDENCIES:
+  - GTToast (from `../`)
+
+EXTERNAL SOURCES:
+  GTToast:
+    :path: ../
+
+SPEC CHECKSUMS:
+  GTToast: 2f55a6d91ba9cf12c7fed043f119f15980081016
+
+COCOAPODS: 0.38.2
