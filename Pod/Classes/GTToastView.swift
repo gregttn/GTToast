@@ -7,8 +7,8 @@
 //
 
 public class GTToastView: UIView {
-    public var messageLabel: UILabel!
-    private let labelMargin: CGFloat = 3.0
+    internal var messageLabel: UILabel!
+    internal let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
 
     init() {
         fatalError("init(coder:) has not been implemented")
@@ -29,10 +29,14 @@ public class GTToastView: UIView {
     }
 
     private func createLabel() -> UILabel {
-        let totalMargin: CGFloat = 2 * labelMargin
-        let label = UILabel(frame: CGRectMake(labelMargin, labelMargin, frame.size.width
-            - totalMargin, frame.size.height - totalMargin))
+        let labelFrame = CGRectMake(
+                contentInsets.left,
+                contentInsets.top,
+                frame.size.width - contentInsets.right - contentInsets.left,
+                frame.size.height - contentInsets.top - contentInsets.right
+        )
         
+        let label = UILabel(frame: labelFrame)
         label.backgroundColor = UIColor.clearColor()
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
