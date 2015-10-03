@@ -9,7 +9,9 @@
 public class GTToastView: UIView {
     private var messageLabel: UILabel!
     private let config: GTToastConfig
-
+    private let displayInterval: NSTimeInterval = 4
+    private let animationOffset: CGFloat = 20
+    
     init() {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,7 +30,7 @@ public class GTToastView: UIView {
         messageLabel = createLabel()
         addSubview(messageLabel)
     }
-
+    
     private func createLabel() -> UILabel {
         let labelFrame = CGRectMake(
                 config.contentInsets.left,
@@ -49,7 +51,40 @@ public class GTToastView: UIView {
     }
     
     public func show() {
-        let window = UIApplication.sharedApplication().windows.first
-        window?.addSubview(self)
+        let firstWindow = UIApplication.sharedApplication().windows.first
+        
+        guard let window = firstWindow where !window.subviews.contains(self) else {
+            return
+        }
+        
+        window.addSubview(self)
+        
+        transform = CGAffineTransformMakeTranslation(0, frame.height + animationOffset)
+        
+        animate(0,
+            animations: { self.transform = CGAffineTransformIdentity },
+            completion: { (finished) in
+                self.remove(self.displayInterval)
+            }
+        )
+    }
+    
+    private func remove(delay: NSTimeInterval) {
+        animate(delay,
+            animations: { self.transform = CGAffineTransformMakeTranslation(0, self.frame.height + self.animationOffset) },
+            completion: { (finished) in
+                self.removeFromSuperview()
+            }
+        )
+    }
+    
+    private func animate(delay: NSTimeInterval, animations: () -> Void, completion: (finished: Bool) -> Void) {
+        UIView.animateWithDuration(0.6,
+            delay: delay,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0,
+            options: [.CurveEaseInOut, .AllowUserInteraction],
+            animations: animations,
+            completion: completion)
     }
 }

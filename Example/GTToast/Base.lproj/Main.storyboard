@@ -16,11 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWo-tZ-S3A">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="3ff-Zh-GFy"/>
+                                    <constraint firstAttribute="height" constant="30" id="tC7-Zv-j3F"/>
+                                </constraints>
+                                <state key="normal" title="Show"/>
+                                <connections>
+                                    <action selector="showToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j7v-TS-hdS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YWo-tZ-S3A" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="dMN-QF-1U7"/>
+                            <constraint firstItem="YWo-tZ-S3A" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dpF-IC-jHb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="showButton" destination="YWo-tZ-S3A" id="k34-hu-ynR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="463" y="462"/>
         </scene>
     </scenes>
 </document>
