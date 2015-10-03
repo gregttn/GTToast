@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'GTToast_Example', :exclusive => true do
+  pod "GTToast", :path => "../"
+end
+
+target 'GTToast_Tests', :exclusive => true do
+  pod "GTToast", :path => "../"
+
+  
+end
