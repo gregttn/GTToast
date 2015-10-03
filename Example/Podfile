@@ -7,6 +7,4 @@ end
 
 target 'GTToast_Tests', :exclusive => true do
   pod "GTToast", :path => "../"
-
-  
 end
