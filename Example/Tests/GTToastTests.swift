@@ -26,16 +26,20 @@ class GTToastTests: XCTestCase {
         
         let margin: CGFloat = 5.0
         let contentInset: CGFloat = 3.0
+        let maxLabelWidth = screenSize.width - 2 * margin - 2 * contentInset
+        
         let labelSize = NSString(string: message).boundingRectWithSize(
-                CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset, 0),
+                CGSizeMake(maxLabelWidth, 0),
                 options: NSStringDrawingOptions.UsesLineFragmentOrigin,
                 attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
                 context: nil)
             .size
         
         let height: CGFloat = ceil(labelSize.height) + 2 * contentInset
+        let width: CGFloat = ceil(labelSize.width) + 2 * contentInset
         let yOffset: CGFloat = screenSize.height - height - margin
+        let xOffset: CGFloat = ceil((screenSize.width - width) / 2.0)
         
-        return CGRectMake(margin, yOffset, screenSize.width - 2 * margin, height)
+        return CGRectMake(xOffset, yOffset, width, height)
     }
 }

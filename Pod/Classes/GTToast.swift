@@ -18,18 +18,16 @@ public class GTToast {
     
     private static func createFrame(config: GTToastConfig) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds
-        let width = screenSize.width - 2 * GTToast.margin
         
-        let labelHeight = ceil(
-                    config.font
-                    .sizeFor(config.message, constrain: CGSizeMake(width - config.contentInsets.left + config.contentInsets.right, 0))
-                    .height
-        )
+        let maxLabelWidth = screenSize.width - 2 * GTToast.margin - config.contentInsets.left - config.contentInsets.right
+        let labelSize = config.font.sizeFor(config.message, constrain: CGSizeMake(maxLabelWidth, 0))
         
-        let height = labelHeight + config.contentInsets.top + config.contentInsets.bottom
+        let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
+        let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right
         let y = screenSize.height - GTToast.margin - height
+        let x = ceil((screenSize.width - width) / 2.0)
         
-        return CGRectMake(GTToast.margin, y, width, height)
+        return CGRectMake(x, y, width, height)
     }
 }
 
