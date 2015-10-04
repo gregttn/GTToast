@@ -12,7 +12,6 @@ public class GTToast {
     public static func create(message: String) -> GTToastView {
         let config = GTToastConfig(message: message)
         let toast = GTToastView(frame: createFrame(config), config: config)
-        //toast.autoresizingMask = [UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
         
         return toast
     }
