@@ -12,6 +12,7 @@ public class GTToast {
     public static func create(message: String) -> GTToastView {
         let config = GTToastConfig(message: message)
         let toast = GTToastView(frame: createFrame(config), config: config)
+        //toast.autoresizingMask = [UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
         
         return toast
     }
@@ -21,7 +22,7 @@ public class GTToast {
         let width = screenSize.width - 2 * GTToast.margin
         
         let labelHeight = ceil(
-                UIFont.systemFontOfSize(12.0)
+                    config.font
                     .sizeFor(config.message, constrain: CGSizeMake(width - config.contentInsets.left + config.contentInsets.right, 0))
                     .height
         )

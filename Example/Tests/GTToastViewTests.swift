@@ -87,6 +87,19 @@ class GTToastViewTests: XCTestCase {
         XCTAssertTrue(CGColorEqualToColor(messageLabel.textColor.CGColor, UIColor.redColor().CGColor))
     }
     
+    func testInit_shouldHaveAutoresizingMaskSetToHandleRotation() {
+        let messageLabel = toast.subviews[0] as! UILabel
+        let expectedMasks: UIViewAutoresizing = [UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
+        
+        XCTAssertEqual(messageLabel.autoresizingMask, expectedMasks)
+    }
+    
+    func testInit_messageLableshouldHaveAutoresizingMaskSetToHandleRotation() {
+        let expectedMasks: UIViewAutoresizing = [UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
+        
+        XCTAssertEqual(toast.autoresizingMask, expectedMasks)
+    }
+    
     func testShow_shouldAddViewToWindow() {
         toast.show()
         

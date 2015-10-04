@@ -24,6 +24,7 @@ public class GTToastView: UIView {
         self.config = config
         super.init(frame: frame)
         
+        self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         self.backgroundColor = config.backgroundColor.colorWithAlphaComponent(0.8)
         self.layer.cornerRadius = 3.0
         
@@ -46,6 +47,7 @@ public class GTToastView: UIView {
         label.font = config.font
         label.numberOfLines = 0
         label.text = config.message
+        label.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         
         return label
     }
