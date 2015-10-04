@@ -12,22 +12,22 @@ class GTToastViewTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        toast = GTToastView(frame: frame, config: config)
+        toast = GTToastView(config: config)
+        toast.frame = frame
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown() 
     }
     
     func testInit_shouldHaveCorrectFrame() {
-        toast = GTToastView(frame: frame, config: config)
+        toast.frame = frame
         
         XCTAssertEqual(toast.frame, frame)
     }
     
     func testInit_shouldHaveBlackBackgroundWhenNotProvided() {
-        toast = GTToastView(frame: frame, config: config)
         let expectedColor = UIColor.blackColor().colorWithAlphaComponent(0.8).CGColor
         
         XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, expectedColor))
@@ -35,7 +35,10 @@ class GTToastViewTests: XCTestCase {
     
     func testInit_shouldHaveCorrectBackgroundColor() {
         let config = GTToastConfig(message: "", backgroundColor: UIColor.redColor())
-        toast = GTToastView(frame: frame, config: config)
+        
+        toast = GTToastView(config: config)
+        toast.frame = frame
+        
         let expectedColor = UIColor.redColor().colorWithAlphaComponent(0.8).CGColor
 
         XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, expectedColor))
@@ -46,7 +49,8 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testInit_shouldHaveMessageLabelWithCorrectFrame() {
-        toast = GTToastView(frame: CGRectMake(100, 100, 100, 100), config: config)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
         let messageLabel = toast.subviews[0]
         
         XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
@@ -72,7 +76,9 @@ class GTToastViewTests: XCTestCase {
         let expectedFont = UIFont.systemFontOfSize(24.0)
         let config = GTToastConfig(message: "", font: expectedFont)
         
-        toast = GTToastView(frame: frame, config: config)
+        toast = GTToastView(config: config)
+        toast.frame = frame
+        
         let messageLabel = toast.subviews[0] as! UILabel
         
         XCTAssertEqual(messageLabel.font, expectedFont)
@@ -81,7 +87,9 @@ class GTToastViewTests: XCTestCase {
     func testInit_shouldChangeTextColor() {
         let config = GTToastConfig(message: "", textColor: UIColor.redColor())
         
-        toast = GTToastView(frame: frame, config: config)
+        toast = GTToastView(config: config)
+        toast.frame = frame
+        
         let messageLabel = toast.subviews[0] as! UILabel
         
         XCTAssertTrue(CGColorEqualToColor(messageLabel.textColor.CGColor, UIColor.redColor().CGColor))
@@ -104,6 +112,24 @@ class GTToastViewTests: XCTestCase {
         toast.show()
         
         XCTAssertTrue(window().subviews.contains(toast))
+    }
+    
+    func testSizeThatFits_shouldReturnAppropriateSize() {
+        let screenSize = UIScreen.mainScreen().bounds.size
+        let margin: CGFloat = 5.0
+        let contentInset: CGFloat = 3.0
+        
+        let labelSize = NSString(string: "").boundingRectWithSize(
+            CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset, 0),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
+            context: nil)
+            .size
+        
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset,
+            ceil(labelSize.height) + 2 * contentInset)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }
     
     private func window() -> UIWindow {

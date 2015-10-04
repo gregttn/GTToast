@@ -11,23 +11,20 @@ public class GTToast {
     
     public static func create(message: String) -> GTToastView {
         let config = GTToastConfig(message: message)
-        let toast = GTToastView(frame: createFrame(config), config: config)
-        
+        let toast = GTToastView(config: config)
+        toast.frame = createFrame(toast)
         return toast
     }
     
-    private static func createFrame(config: GTToastConfig) -> CGRect {
+    private static func createFrame(config: GTToastView) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds
         
-        let maxLabelWidth = screenSize.width - 2 * GTToast.margin - config.contentInsets.left - config.contentInsets.right
-        let labelSize = config.font.sizeFor(config.message, constrain: CGSizeMake(maxLabelWidth, 0))
+        let size = config.sizeThatFits(CGSizeZero)
         
-        let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
-        let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right
-        let y = screenSize.height - GTToast.margin - height
-        let x = ceil((screenSize.width - width) / 2.0)
+        let y = screenSize.height - GTToast.margin - size.height
+        let x = ceil((screenSize.width - size.width) / 2.0)
         
-        return CGRectMake(x, y, width, height)
+        return CGRectMake(x, y, size.width, size.height)
     }
 }
 

@@ -21,6 +21,14 @@ class GTToastTests: XCTestCase {
         XCTAssertEqual(toastView.frame, expectedFrame(message))
     }
     
+    func testCreate_shouldCreateWithAppropriateMessage() {
+        let message = "Test Message"
+        let toastView = GTToast.create(message)
+        
+        let label = toastView.subviews[0] as! UILabel
+        XCTAssertEqual(label.text, message)
+    }
+    
     private func expectedFrame(message: String) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds.size
         
