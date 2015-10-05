@@ -8,9 +8,22 @@
 
 public class GTToast {
     private static let margin: CGFloat = 5.0
+    private let config: GTToastConfig
+    
+    public init(config: GTToastConfig) {
+        self.config = config
+    }
+    
+    public func create(message: String) -> GTToastView {
+        return GTToast.create(message, config: config)
+    }
     
     public static func create(message: String) -> GTToastView {
-        let toast = GTToastView(message: message, config: GTToastConfig())
+        return GTToast.create(message, config: GTToastConfig())
+    }
+    
+    public static func create(message: String, config: GTToastConfig) -> GTToastView {
+        let toast = GTToastView(message: message, config: config)
         toast.frame = createFrame(toast)
         
         return toast

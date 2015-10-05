@@ -29,6 +29,17 @@ class GTToastTests: XCTestCase {
         XCTAssertEqual(label.text, message)
     }
     
+    func testCreate_shouldCreateWithAppropriateConfig() {
+        let config = GTToastConfig(textColor: UIColor.blueColor())
+        let toastFactory = GTToast(config: config)
+        let message = "Test Message"
+        
+        let toastView = toastFactory.create(message)
+        
+        let label = toastView.subviews[0] as! UILabel
+        XCTAssertTrue(CGColorEqualToColor(label.textColor.CGColor, UIColor.blueColor().CGColor))
+    }
+    
     private func expectedFrame(message: String) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds.size
         
