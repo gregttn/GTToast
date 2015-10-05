@@ -12,6 +12,7 @@ public class GTToastView: UIView {
     private let displayInterval: NSTimeInterval = 4
     private let animationOffset: CGFloat = 20
     private let margin: CGFloat = 5
+    private let message: String
     
     override public var frame: CGRect {
         didSet {
@@ -29,15 +30,16 @@ public class GTToastView: UIView {
     }
     
     init() {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init() has not been implemented")
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(config: GTToastConfig) {
+    public init(message: String, config: GTToastConfig) {
         self.config = config
+        self.message = message
         super.init(frame: CGRectZero)
         
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
@@ -55,7 +57,7 @@ public class GTToastView: UIView {
         label.textColor = config.textColor
         label.font = config.font
         label.numberOfLines = 0
-        label.text = config.message
+        label.text = message
         label.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         
         return label
@@ -65,7 +67,7 @@ public class GTToastView: UIView {
         let screenSize = UIScreen.mainScreen().bounds
         
         let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.left - config.contentInsets.right
-        let labelSize = config.font.sizeFor(config.message, constrain: CGSizeMake(maxLabelWidth, 0))
+        let labelSize = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
         let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
         let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right
         

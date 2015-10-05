@@ -6,13 +6,13 @@ class GTToastViewTests: XCTestCase {
     private var toast: GTToastView!
     
     let frame = CGRectMake(0, 0, 100, 100)
-    let config = GTToastConfig(message: "")
+    let config = GTToastConfig()
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        toast = GTToastView(config: config)
+        toast = GTToastView(message: "", config: config)
         toast.frame = frame
     }
 
@@ -34,9 +34,9 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testInit_shouldHaveCorrectBackgroundColor() {
-        let config = GTToastConfig(message: "", backgroundColor: UIColor.redColor())
+        let config = GTToastConfig(backgroundColor: UIColor.redColor())
         
-        toast = GTToastView(config: config)
+        toast = GTToastView(message: "",config: config)
         toast.frame = frame
         
         let expectedColor = UIColor.redColor().colorWithAlphaComponent(0.8).CGColor
@@ -74,9 +74,9 @@ class GTToastViewTests: XCTestCase {
     
     func testInit_shouldChangeTheFont() {
         let expectedFont = UIFont.systemFontOfSize(24.0)
-        let config = GTToastConfig(message: "", font: expectedFont)
+        let config = GTToastConfig(font: expectedFont)
         
-        toast = GTToastView(config: config)
+        toast = GTToastView(message: "", config: config)
         toast.frame = frame
         
         let messageLabel = toast.subviews[0] as! UILabel
@@ -85,9 +85,9 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testInit_shouldChangeTextColor() {
-        let config = GTToastConfig(message: "", textColor: UIColor.redColor())
+        let config = GTToastConfig(textColor: UIColor.redColor())
         
-        toast = GTToastView(config: config)
+        toast = GTToastView(message: "",config: config)
         toast.frame = frame
         
         let messageLabel = toast.subviews[0] as! UILabel
