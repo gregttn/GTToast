@@ -6,10 +6,9 @@
 //
 //
 
-public class GTToastView: UIView {
+public class GTToastView: UIView, GTAnimatable {
     private var messageLabel: UILabel!
     private let config: GTToastConfig
-    private let displayInterval: NSTimeInterval = 4
     private let animationOffset: CGFloat = 20
     private let margin: CGFloat = 5
     private let message: String
@@ -75,36 +74,36 @@ public class GTToastView: UIView {
     }
     
     public func show() {
-        let firstWindow = UIApplication.sharedApplication().windows.first
-        
-        guard let window = firstWindow where !window.subviews.contains(self) else {
+        guard let window = UIApplication.sharedApplication().windows.first where !window.subviews.contains(self) else {
             return
         }
         
         window.addSubview(self)
         
-        transform = CGAffineTransformMakeTranslation(0, frame.height + animationOffset)
+        let (showAnimation, hideAnimation) = config.animation.animations(self)
+        animateAll(self, interval: config.displayInterval, showAnimations: showAnimation, hideAnimations: hideAnimation)
+    }
+}
+
+public protocol GTAnimatable {}
+
+public extension GTAnimatable {
+    func animateAll(view: UIView, interval: NSTimeInterval, showAnimations: () -> Void, hideAnimations: () -> Void) {
+        hideAnimations()
         
         animate(0,
-            animations: { self.transform = CGAffineTransformIdentity },
-            completion: { (finished) in
-                self.remove(self.displayInterval)
+            animations: showAnimations,
+            completion:{ _ in
+                self.animate(interval,
+                    animations: hideAnimations ,
+                    completion: { _ in view.removeFromSuperview() })
             }
         )
     }
     
-    private func remove(delay: NSTimeInterval) {
-        animate(delay,
-            animations: { self.transform = CGAffineTransformMakeTranslation(0, self.frame.height + self.animationOffset) },
-            completion: { (finished) in
-                self.removeFromSuperview()
-            }
-        )
-    }
-    
-    private func animate(delay: NSTimeInterval, animations: () -> Void, completion: (finished: Bool) -> Void) {
+    private func animate(interval: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)?) {
         UIView.animateWithDuration(0.6,
-            delay: delay,
+            delay: interval,
             usingSpringWithDamping: 0.8,
             initialSpringVelocity: 0,
             options: [.CurveEaseInOut, .AllowUserInteraction],

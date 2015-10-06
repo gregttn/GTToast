@@ -49,16 +49,23 @@ public struct GTToastConfig {
     let font: UIFont
     let textColor: UIColor
     let backgroundColor: UIColor
+    let displayInterval: NSTimeInterval
+    let animation: GTToastAnimation
     
     public init(
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
         font: UIFont = GTToastConfig.defaultFont,
         textColor: UIColor = UIColor.whiteColor(),
-        backgroundColor: UIColor = UIColor.blackColor())
+        backgroundColor: UIColor = UIColor.blackColor(),
+        displayInterval: NSTimeInterval = 4,
+        animation: GTToastAnimation = GTToastAnimation.Alpha)
     {
         self.contentInsets = contentInsets
         self.font = font
         self.textColor = textColor
         self.backgroundColor = backgroundColor
+        self.animation = animation
+        self.displayInterval = displayInterval
     }
 }
+

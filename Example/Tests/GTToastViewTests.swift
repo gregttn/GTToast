@@ -108,10 +108,44 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(toast.autoresizingMask, expectedMasks)
     }
     
-    func testShow_shouldAddViewToWindow() {
+    func testShow_shouldAddViewToWindowWhenSlideInAnimationSelected() {
         toast.show()
         
         XCTAssertTrue(window().subviews.contains(toast))
+    }
+    
+    func testShow_shouldRemoveViewFromWindowAfterDelayWhenSlideInAnimationSelected() {
+        let config = GTToastConfig(displayInterval: 0.1)
+        
+        toast = GTToastView(message: "",config: config)
+        toast.frame = frame
+        toast.show()
+        
+        NSRunLoop.currentRunLoop().runUntilDate(NSDate().dateByAddingTimeInterval(1.5))
+        
+        XCTAssertFalse(window().subviews.contains(toast))
+    }
+    
+    func testShow_shouldAddViewToWindowWhenAlphaAnimationSelected() {
+        let config = GTToastConfig(animation: GTToastAnimation.Alpha)
+        
+        toast = GTToastView(message: "",config: config)
+        toast.frame = frame
+        toast.show()
+        
+        XCTAssertTrue(window().subviews.contains(toast))
+    }
+    
+    func testShow_shouldRemoveViewFromWindowAfterDelayWhenAlphaAnimationSelected() {
+        let config = GTToastConfig(displayInterval: 0.1, animation: GTToastAnimation.Alpha)
+        
+        toast = GTToastView(message: "",config: config)
+        toast.frame = frame
+        toast.show()
+        
+        NSRunLoop.currentRunLoop().runUntilDate(NSDate().dateByAddingTimeInterval(1.5))
+        
+        XCTAssertFalse(window().subviews.contains(toast))
     }
     
     func testSizeThatFits_shouldReturnAppropriateSize() {
