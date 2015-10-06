@@ -85,9 +85,9 @@ public class GTToastView: UIView, GTAnimatable {
     }
 }
 
-public protocol GTAnimatable {}
+internal protocol GTAnimatable {}
 
-public extension GTAnimatable {
+internal extension GTAnimatable {
     func animateAll(view: UIView, interval: NSTimeInterval, showAnimations: () -> Void, hideAnimations: () -> Void) {
         hideAnimations()
         

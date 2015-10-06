@@ -5,9 +5,11 @@
 //  Created by Grzegorz Tatarzyn on 05/10/2015.
 //
 //
-public enum GTToastAnimation {
+public enum GTToastAnimation: Int {
     case Alpha
     case BottomSlideIn
+    case LeftSlideIn
+    case RightSlideIn
     
     internal func animations(view: UIView) -> (() -> Void, () -> Void) {
         var showAnimations = {}
@@ -20,6 +22,12 @@ public enum GTToastAnimation {
         case .BottomSlideIn:
             showAnimations = { view.transform = CGAffineTransformIdentity }
             hideAnimations = { view.transform = CGAffineTransformMakeTranslation(0, view.frame.height + 20)}
+        case .LeftSlideIn :
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(-view.frame.width - 20, 0)}
+        case .RightSlideIn :
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(view.frame.width + 20, 0)}
         }
         
         return (showAnimations, hideAnimations)
