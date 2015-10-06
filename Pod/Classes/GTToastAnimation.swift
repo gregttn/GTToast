@@ -10,6 +10,7 @@ public enum GTToastAnimation: Int {
     case BottomSlideIn
     case LeftSlideIn
     case RightSlideIn
+    case Scale
     
     internal func animations(view: UIView) -> (() -> Void, () -> Void) {
         var showAnimations = {}
@@ -28,6 +29,9 @@ public enum GTToastAnimation: Int {
         case .RightSlideIn :
             showAnimations = { view.transform = CGAffineTransformIdentity }
             hideAnimations = { view.transform = CGAffineTransformMakeTranslation(view.frame.width + 20, 0)}
+        case .Scale :
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = { view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)}
         }
         
         return (showAnimations, hideAnimations)

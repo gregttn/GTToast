@@ -35,6 +35,7 @@
                                     <segment title="Bottom"/>
                                     <segment title="Left"/>
                                     <segment title="Right"/>
+                                    <segment title="Scale"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
