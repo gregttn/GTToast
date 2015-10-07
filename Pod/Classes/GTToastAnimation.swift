@@ -11,31 +11,43 @@ public enum GTToastAnimation: Int {
     case LeftSlideIn
     case RightSlideIn
     case Scale
+    case LeftInRightOut
     
     public func animations(view: UIView) -> GTAnimations {
         let screenSize = UIScreen.mainScreen().bounds
         var showAnimations = {}
         var hideAnimations = {}
+        var before = {}
         
         switch self{
         case .Alpha:
+            before = { view.alpha = 0 }
             showAnimations = { view.alpha = 1 }
-            hideAnimations = { view.alpha = 0 }
+            hideAnimations = before
         case .BottomSlideIn:
+            before = { view.transform = CGAffineTransformMakeTranslation(0, screenSize.height - view.frame.origin.y)}
             showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(0, screenSize.height - view.frame.origin.y)}
+            hideAnimations = before
         case .LeftSlideIn :
+            before = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
             showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
+            hideAnimations = before
         case .RightSlideIn :
+            before = { view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)}
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = before
+        case .Scale :
+            before = { view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)}
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = before
+        case .LeftInRightOut:
+            before = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
             showAnimations = { view.transform = CGAffineTransformIdentity }
             hideAnimations = { view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)}
-        case .Scale :
-            showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)}
+            break
         }
         
-        return GTAnimations(before: hideAnimations, show: showAnimations, hide: hideAnimations)
+        return GTAnimations(before: before, show: showAnimations, hide: hideAnimations)
     }
 }
 

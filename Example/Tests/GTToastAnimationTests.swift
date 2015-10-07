@@ -140,4 +140,26 @@ class GTToastAnimationTests: XCTestCase {
         XCTAssertEqualWithAccuracy(testView.frame.width, 0, accuracy: 0.000001)
         XCTAssertEqualWithAccuracy(testView.frame.height, 0, accuracy: 0.000001)
     }
+    
+    func testLeftToRight_shouldMoveViewAfterTheLeftScreenEdgeWhenBeforeExecuted() {
+        let animations = GTToastAnimation.LeftInRightOut.animations(testView)
+        
+        animations.before()
+        XCTAssertEqual(testView.frame, CGRectMake(-100, 5, 100, 100))
+    }
+    
+    func testLeftToRight_shouldMoveViewOnTheScreenWhenShowExecuted() {
+        let animations = GTToastAnimation.LeftInRightOut.animations(testView)
+        testView.transform = CGAffineTransformMakeTranslation(-screenSize.width+testView.frame.width, 0)
+        
+        animations.show()
+        XCTAssertEqual(testView.frame, CGRectMake(5, 5, 100, 100))
+    }
+    
+    func testLeftToRight_shouldMoveViewAfterTheRightScreenEdgeWhenHideExecuted() {
+        let animations = GTToastAnimation.LeftInRightOut.animations(testView)
+        
+        animations.hide()
+        XCTAssertEqual(testView.frame, CGRectMake(screenSize.width, 5, 100, 100))
+    }
 }
