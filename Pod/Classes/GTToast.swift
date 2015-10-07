@@ -29,10 +29,10 @@ public class GTToast {
         return toast
     }
     
-    private static func createFrame(config: GTToastView) -> CGRect {
+    private static func createFrame(view: GTToastView) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds
         
-        let size = config.sizeThatFits(CGSizeZero)
+        let size = view.sizeThatFits(CGSizeZero)
         
         let y = screenSize.height - GTToast.margin - size.height
         let x = ceil((screenSize.width - size.width) / 2.0)

@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		636897491BC0173B0091F1F3 /* GTToastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636897441BC0167E0091F1F3 /* GTToastViewTests.swift */; settings = {ASSET_TAGS = (); }; };
 		6368974A1BC0173E0091F1F3 /* GTToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* GTToastTests.swift */; settings = {ASSET_TAGS = (); }; };
+		63BD3B481BC5063F00D697D8 /* GTToastAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD3B471BC5063F00D697D8 /* GTToastAnimationTests.swift */; settings = {ASSET_TAGS = (); }; };
 		9FC490AC5C62ABB461B3AA97 /* Pods_GTToast_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D0546CA685DCA83B096CBB /* Pods_GTToast_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* GTToastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTToastTests.swift; sourceTree = "<group>"; };
 		636897441BC0167E0091F1F3 /* GTToastViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTToastViewTests.swift; sourceTree = "<group>"; };
+		63BD3B471BC5063F00D697D8 /* GTToastAnimationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTToastAnimationTests.swift; sourceTree = "<group>"; };
 		72D0546CA685DCA83B096CBB /* Pods_GTToast_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93695CBBBCC4D8A6005BE5A9 /* Pods-GTToast_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTToast_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GTToast_Tests/Pods-GTToast_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC3046FDB54DAE0D9E857984 /* Pods-GTToast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTToast_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GTToast_Example/Pods-GTToast_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				636897441BC0167E0091F1F3 /* GTToastViewTests.swift */,
 				607FACEB1AFB9204008FA782 /* GTToastTests.swift */,
+				63BD3B471BC5063F00D697D8 /* GTToastAnimationTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BD3B481BC5063F00D697D8 /* GTToastAnimationTests.swift in Sources */,
 				6368974A1BC0173E0091F1F3 /* GTToastTests.swift in Sources */,
 				636897491BC0173B0091F1F3 /* GTToastViewTests.swift in Sources */,
 			);

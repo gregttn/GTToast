@@ -12,7 +12,8 @@ public enum GTToastAnimation: Int {
     case RightSlideIn
     case Scale
     
-    internal func animations(view: UIView) -> (() -> Void, () -> Void) {
+    public func animations(view: UIView) -> GTAnimations {
+        let screenSize = UIScreen.mainScreen().bounds
         var showAnimations = {}
         var hideAnimations = {}
         
@@ -22,18 +23,24 @@ public enum GTToastAnimation: Int {
             hideAnimations = { view.alpha = 0 }
         case .BottomSlideIn:
             showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(0, view.frame.height + 20)}
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(0, screenSize.height - view.frame.origin.y)}
         case .LeftSlideIn :
             showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(-view.frame.width - 20, 0)}
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
         case .RightSlideIn :
             showAnimations = { view.transform = CGAffineTransformIdentity }
-            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(view.frame.width + 20, 0)}
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)}
         case .Scale :
             showAnimations = { view.transform = CGAffineTransformIdentity }
             hideAnimations = { view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)}
         }
         
-        return (showAnimations, hideAnimations)
+        return GTAnimations(before: hideAnimations, show: showAnimations, hide: hideAnimations)
     }
+}
+
+public struct GTAnimations {
+    public let before: () -> Void
+    public let show: () -> Void
+    public let hide: () -> Void
 }
