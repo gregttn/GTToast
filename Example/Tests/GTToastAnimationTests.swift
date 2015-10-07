@@ -141,14 +141,14 @@ class GTToastAnimationTests: XCTestCase {
         XCTAssertEqualWithAccuracy(testView.frame.height, 0, accuracy: 0.000001)
     }
     
-    func testLeftToRight_shouldMoveViewAfterTheLeftScreenEdgeWhenBeforeExecuted() {
+    func testLeftInRightOut_shouldMoveViewAfterTheLeftScreenEdgeWhenBeforeExecuted() {
         let animations = GTToastAnimation.LeftInRightOut.animations(testView)
         
         animations.before()
         XCTAssertEqual(testView.frame, CGRectMake(-100, 5, 100, 100))
     }
     
-    func testLeftToRight_shouldMoveViewOnTheScreenWhenShowExecuted() {
+    func testLeftInRightOut_shouldMoveViewOnTheScreenWhenShowExecuted() {
         let animations = GTToastAnimation.LeftInRightOut.animations(testView)
         testView.transform = CGAffineTransformMakeTranslation(-screenSize.width+testView.frame.width, 0)
         
@@ -156,10 +156,32 @@ class GTToastAnimationTests: XCTestCase {
         XCTAssertEqual(testView.frame, CGRectMake(5, 5, 100, 100))
     }
     
-    func testLeftToRight_shouldMoveViewAfterTheRightScreenEdgeWhenHideExecuted() {
+    func testLeftInRightOut_shouldMoveViewAfterTheRightScreenEdgeWhenHideExecuted() {
         let animations = GTToastAnimation.LeftInRightOut.animations(testView)
         
         animations.hide()
         XCTAssertEqual(testView.frame, CGRectMake(screenSize.width, 5, 100, 100))
+    }
+    
+    func testRightInLeftOut_shouldMoveViewAfterTheRightScreenEdgeWhenBeforeExecuted() {
+        let animations = GTToastAnimation.RightInLeftOut.animations(testView)
+        
+        animations.before()
+        XCTAssertEqual(testView.frame, CGRectMake(screenSize.width, 5, 100, 100))
+    }
+    
+    func testRightInLeftOut_shouldMoveViewOnTheScreenWhenShowExecuted() {
+        let animations = GTToastAnimation.RightInLeftOut.animations(testView)
+        testView.transform = CGAffineTransformMakeTranslation(-screenSize.width+testView.frame.width, 0)
+        
+        animations.show()
+        XCTAssertEqual(testView.frame, CGRectMake(5, 5, 100, 100))
+    }
+    
+    func testRightInLeftOu_shouldMoveViewAfterTheLeftScreenEdgeWhenHideExecuted() {
+        let animations = GTToastAnimation.RightInLeftOut.animations(testView)
+        
+        animations.hide()
+        XCTAssertEqual(testView.frame, CGRectMake(-100, 5, 100, 100))
     }
 }

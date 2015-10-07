@@ -12,6 +12,7 @@ public enum GTToastAnimation: Int {
     case RightSlideIn
     case Scale
     case LeftInRightOut
+    case RightInLeftOut
     
     public func animations(view: UIView) -> GTAnimations {
         let screenSize = UIScreen.mainScreen().bounds
@@ -44,6 +45,10 @@ public enum GTToastAnimation: Int {
             before = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
             showAnimations = { view.transform = CGAffineTransformIdentity }
             hideAnimations = { view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)}
+        case .RightInLeftOut:
+            before = { view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)}
+            showAnimations = { view.transform = CGAffineTransformIdentity }
+            hideAnimations = { view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)}
             break
         }
         
