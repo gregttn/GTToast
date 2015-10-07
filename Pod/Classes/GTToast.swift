@@ -7,7 +7,6 @@
 //
 
 public class GTToast {
-    private static let margin: CGFloat = 5.0
     private let config: GTToastConfig
     
     public init(config: GTToastConfig) {
@@ -24,17 +23,17 @@ public class GTToast {
     
     public static func create(message: String, config: GTToastConfig) -> GTToastView {
         let toast = GTToastView(message: message, config: config)
-        toast.frame = createFrame(toast)
+        toast.frame = createFrame(toast, config: config)
         
         return toast
     }
     
-    private static func createFrame(view: GTToastView) -> CGRect {
+    private static func createFrame(view: GTToastView, config: GTToastConfig) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds
         
         let size = view.sizeThatFits(CGSizeZero)
         
-        let y = screenSize.height - GTToast.margin - size.height
+        let y = screenSize.height - config.bottomMargin - size.height
         let x = ceil((screenSize.width - size.width) / 2.0)
         
         return CGRectMake(x, y, size.width, size.height)
@@ -51,14 +50,16 @@ public struct GTToastConfig {
     let backgroundColor: UIColor
     let displayInterval: NSTimeInterval
     let animation: GTToastAnimation
+    let bottomMargin: CGFloat
     
     public init(
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
         font: UIFont = GTToastConfig.defaultFont,
         textColor: UIColor = UIColor.whiteColor(),
         backgroundColor: UIColor = UIColor.blackColor(),
+        animation: GTToastAnimation = .BottomSlideIn,
         displayInterval: NSTimeInterval = 4,
-        animation: GTToastAnimation = .BottomSlideIn)
+        bottomMargin: CGFloat = 5.0)
     {
         self.contentInsets = contentInsets
         self.font = font
@@ -66,6 +67,7 @@ public struct GTToastConfig {
         self.backgroundColor = backgroundColor
         self.animation = animation
         self.displayInterval = displayInterval
+        self.bottomMargin = bottomMargin
     }
 }
 

@@ -40,7 +40,15 @@ class GTToastTests: XCTestCase {
         XCTAssertTrue(CGColorEqualToColor(label.textColor.CGColor, UIColor.blueColor().CGColor))
     }
     
-    private func expectedFrame(message: String) -> CGRect {
+    func testCreate_shouldAllowBottomMarginToBeSpecified() {
+        let config = GTToastConfig(bottomMargin: 2.0)
+        let message = "Test Message"
+        let toastView = GTToast.create(message, config: config)
+        
+        XCTAssertEqual(toastView.frame, expectedFrame(message, bottomMargin: 2.0))
+    }
+    
+    private func expectedFrame(message: String, bottomMargin: CGFloat = 5.0) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds.size
         
         let margin: CGFloat = 5.0
@@ -56,7 +64,7 @@ class GTToastTests: XCTestCase {
         
         let height: CGFloat = ceil(labelSize.height) + 2 * contentInset
         let width: CGFloat = ceil(labelSize.width) + 2 * contentInset
-        let yOffset: CGFloat = screenSize.height - height - margin
+        let yOffset: CGFloat = screenSize.height - height - bottomMargin
         let xOffset: CGFloat = ceil((screenSize.width - width) / 2.0)
         
         return CGRectMake(xOffset, yOffset, width, height)
