@@ -7,10 +7,10 @@
 //
 public enum GTToastAnimation: Int {
     case Alpha
+    case Scale
     case BottomSlideIn
     case LeftSlideIn
     case RightSlideIn
-    case Scale
     case LeftInRightOut
     case RightInLeftOut
     

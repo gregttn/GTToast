@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -28,30 +28,25 @@
                                     <action selector="showToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j7v-TS-hdS"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-10-73g">
-                                <rect key="frame" x="20" y="28" width="560" height="29"/>
-                                <segments>
-                                    <segment title="Alpha"/>
-                                    <segment title="Bottom"/>
-                                    <segment title="Left"/>
-                                    <segment title="Right"/>
-                                    <segment title="Scale"/>
-                                    <segment title="L&gt;R"/>
-                                    <segment title="R&gt;L"/>
-                                </segments>
-                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCW-7g-iPO">
+                                <rect key="frame" x="0.0" y="20" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="yev-32-5dq"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="rji-71-uBf"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bCW-7g-iPO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="AZ6-7S-PAU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bCW-7g-iPO" secondAttribute="trailing" constant="-20" id="Ut9-Jo-ibJ"/>
+                            <constraint firstItem="bCW-7g-iPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="YXV-LA-rjg"/>
                             <constraint firstItem="YWo-tZ-S3A" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="dMN-QF-1U7"/>
                             <constraint firstItem="YWo-tZ-S3A" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dpF-IC-jHb"/>
-                            <constraint firstItem="pTa-10-73g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="eBb-JC-Am9"/>
-                            <constraint firstItem="pTa-10-73g" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="eSb-j5-bew"/>
-                            <constraint firstItem="pTa-10-73g" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="xt8-i9-bB3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationType" destination="pTa-10-73g" id="XmZ-u8-G2g"/>
+                        <outlet property="animationPicker" destination="bCW-7g-iPO" id="1Zu-cS-cFT"/>
                         <outlet property="showButton" destination="YWo-tZ-S3A" id="k34-hu-ynR"/>
                     </connections>
                 </viewController>
