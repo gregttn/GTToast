@@ -7,11 +7,16 @@
 //
 
 public class GTToastView: UIView, GTAnimatable {
-    private var messageLabel: UILabel!
-    private let config: GTToastConfig
     private let animationOffset: CGFloat = 20
     private let margin: CGFloat = 5
+    private let imageRightMargin: CGFloat = 3
+    private let maxImageWidth: CGFloat = 100
+    
+    private let config: GTToastConfig
+    private let image: UIImage?
     private let message: String
+    
+    private var messageLabel: UILabel!
     
     override public var frame: CGRect {
         didSet {
@@ -20,9 +25,9 @@ public class GTToastView: UIView, GTAnimatable {
             }
             
             messageLabel.frame = CGRectMake(
-                config.contentInsets.left,
+                config.contentInsets.left + totalImageWidth(),
                 config.contentInsets.top,
-                frame.size.width - config.contentInsets.right - config.contentInsets.left,
+                frame.size.width - config.contentInsets.right - config.contentInsets.left - totalImageWidth(),
                 frame.size.height - config.contentInsets.top - config.contentInsets.right
             )
         }
@@ -36,9 +41,10 @@ public class GTToastView: UIView, GTAnimatable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(message: String, config: GTToastConfig) {
+    public init(message: String, config: GTToastConfig, image: UIImage? = .None) {
         self.config = config
         self.message = message
+        self.image = image
         super.init(frame: CGRectZero)
         
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
@@ -48,6 +54,8 @@ public class GTToastView: UIView, GTAnimatable {
         messageLabel = createLabel()
         addSubview(messageLabel)
     }
+    
+    // MARK: creating views
     
     private func createLabel() -> UILabel {
         let label = UILabel()
@@ -62,15 +70,27 @@ public class GTToastView: UIView, GTAnimatable {
         return label
     }
     
+    // MARK: size calculations
+    
     public override func sizeThatFits(size: CGSize) -> CGSize {
         let screenSize = UIScreen.mainScreen().bounds
         
-        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.left - config.contentInsets.right
+        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.left - config.contentInsets.right - totalImageWidth()
         let labelSize = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
+        
         let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
-        let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right
+        let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right + totalImageWidth()
         
         return CGSizeMake(width, height)
+    }
+    
+    private func totalImageWidth() -> CGFloat {
+        guard let image = image else {
+            return 0
+        }
+        
+        let imageWidth: CGFloat = image.size.width > maxImageWidth ? maxImageWidth : image.size.width
+        return imageWidth + imageRightMargin
     }
     
     public func show() {

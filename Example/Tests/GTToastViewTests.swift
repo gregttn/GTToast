@@ -5,6 +5,8 @@ import GTToast
 class GTToastViewTests: XCTestCase {
     private var toast: GTToastView!
     
+    let margin: CGFloat = 5.0
+    let contentInset: CGFloat = 3.0
     let frame = CGRectMake(0, 0, 100, 100)
     let config = GTToastConfig()
     
@@ -55,6 +57,23 @@ class GTToastViewTests: XCTestCase {
         
         XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
         XCTAssertEqual(messageLabel.frame, CGRectMake(3.0, 3.0, 94.0, 94.0))
+    }
+    
+    func testInit_shouldShiftLabelWhenImageViewPresent() {
+        let image = UIImage(named: "tick")
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let messageLabel = toast.subviews[0]
+        let imageRightMargin:CGFloat = 3
+        
+        let expectedFrame = CGRectMake(contentInset + image!.size.width + imageRightMargin,
+            contentInset,
+            toast.frame.width - contentInset - image!.size.width - imageRightMargin - contentInset,
+            94)
+        
+        XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
+        XCTAssertEqual(messageLabel.frame, expectedFrame)
     }
     
     func testInit_messageLabelShouldHaveTransparentBackground() {
@@ -149,21 +168,44 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testSizeThatFits_shouldReturnAppropriateSize() {
-        let screenSize = UIScreen.mainScreen().bounds.size
-        let margin: CGFloat = 5.0
-        let contentInset: CGFloat = 3.0
-        
-        let labelSize = NSString(string: "").boundingRectWithSize(
-            CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset, 0),
-            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
-            attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
-            context: nil)
-            .size
-        
+        let labelSize = calculateLabelSize()
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset,
             ceil(labelSize.height) + 2 * contentInset)
         
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldIncludeSizeOfTheImageWhenPresent() {
+        let image = UIImage(named: "tick")
+        let labelSize = calculateLabelSize(image!.size.width + contentInset)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + image!.size.width + contentInset,
+            ceil(labelSize.height) + 2 * contentInset)
+        
+        toast = GTToastView(message: "", config: config, image: image!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldRestrictSizeOfTheImageTo100() {
+        let image = UIImage(named: "bell")
+        let labelSize = calculateLabelSize(100 + contentInset)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + contentInset,
+            ceil(labelSize.height) + 2 * contentInset)
+    
+        toast = GTToastView(message: "", config: config, image: image!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    private func calculateLabelSize(imageTotalWidth: CGFloat = 0) -> CGSize {
+        let screenSize = UIScreen.mainScreen().bounds.size
+        
+        return NSString(string: "").boundingRectWithSize(
+            CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset - imageTotalWidth, 0),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
+            context: nil)
+            .size
     }
     
     private func window() -> UIWindow {
