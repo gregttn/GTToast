@@ -80,7 +80,7 @@ public class GTToastView: UIView, GTAnimatable {
     private func createLabel() -> UILabel {
         let label = UILabel()
         label.backgroundColor = UIColor.clearColor()
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = config.textAlignment
         label.textColor = config.textColor
         label.font = config.font
         label.numberOfLines = 0

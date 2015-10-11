@@ -59,6 +59,16 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(messageLabel.frame, CGRectMake(3.0, 3.0, 94.0, 94.0))
     }
     
+    func testInit_shouldAlignLabelAccordingToSettings() {
+        let config = GTToastConfig(textAlignment: NSTextAlignment.Left)
+        toast = GTToastView(message: "", config: config)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let messageLabel = toast.subviews[0] as! UILabel
+        
+        XCTAssertEqual(messageLabel.textAlignment, NSTextAlignment.Left)
+    }
+    
     func testInit_shouldShiftLabelWhenImageViewPresent() {
         let image = UIImage(named: "tick")
         toast = GTToastView(message: "", config: config, image: image!)
