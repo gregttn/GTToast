@@ -48,6 +48,15 @@ class GTToastTests: XCTestCase {
         XCTAssertEqual(toastView.frame, expectedFrame(message, bottomMargin: 2.0))
     }
     
+    func testCreate_shouldCreateWithImage() {
+        let image = UIImage(named: "tick")
+        let message = "Test Message"
+        let toastView = GTToast.create(message, image: image)
+        
+        let imageView = toastView.subviews[1] as! UIImageView
+        XCTAssertEqual(imageView.image, image)
+    }
+    
     private func expectedFrame(message: String, bottomMargin: CGFloat = 5.0) -> CGRect {
         let screenSize = UIScreen.mainScreen().bounds.size
         

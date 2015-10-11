@@ -13,16 +13,12 @@ public class GTToast {
         self.config = config
     }
     
-    public func create(message: String) -> GTToastView {
-        return GTToast.create(message, config: config)
+    public func create(message: String, image: UIImage? = .None) -> GTToastView {
+        return GTToast.create(message, config: config, image: image)
     }
     
-    public static func create(message: String) -> GTToastView {
-        return GTToast.create(message, config: GTToastConfig())
-    }
-    
-    public static func create(message: String, config: GTToastConfig) -> GTToastView {
-        let toast = GTToastView(message: message, config: config)
+    public static func create(message: String, config: GTToastConfig = GTToastConfig(), image: UIImage? = .None) -> GTToastView {
+        let toast = GTToastView(message: message, config: config, image: image)
         toast.frame = createFrame(toast, config: config)
         
         return toast
