@@ -7,6 +7,7 @@ class GTToastViewTests: XCTestCase {
     
     let margin: CGFloat = 5.0
     let contentInset: CGFloat = 3.0
+    let imageMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
     let frame = CGRectMake(0, 0, 100, 100)
     let config = GTToastConfig()
     
@@ -75,7 +76,7 @@ class GTToastViewTests: XCTestCase {
         toast.frame = CGRectMake(100, 100, 100, 100)
         
         let messageLabel = toast.subviews[0]
-        let imageRightMargin:CGFloat = 3
+        let imageRightMargin:CGFloat = 5
         
         let expectedFrame = CGRectMake(contentInset + image!.size.width + imageRightMargin,
             contentInset,
@@ -95,6 +96,18 @@ class GTToastViewTests: XCTestCase {
         
         XCTAssertTrue(imageView .isKindOfClass(UIImageView))
         XCTAssertEqual(imageView.frame, CGRectMake(3.0, 3.0, image!.size.width, 94.0))
+    }
+    
+    func testInit_shouldRespectImageInsetsWhenCreatingImageView() {
+        let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 10)
+        let image = UIImage(named: "tick")
+        toast = GTToastView(message: "", config: GTToastConfig(imageMargins: imageMargins), image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let imageView = toast.subviews[1]
+        
+        XCTAssertTrue(imageView .isKindOfClass(UIImageView))
+        XCTAssertEqual(imageView.frame, CGRectMake(3.0 + imageMargins.left, 3.0 + imageMargins.top, image!.size.width, 94.0 - imageMargins.bottom - imageMargins.top))
     }
     
     func testInit_shouldAssignImageToImageView() {
@@ -224,8 +237,8 @@ class GTToastViewTests: XCTestCase {
     
     func testSizeThatFits_shouldIncludeSizeOfTheImageWhenPresent() {
         let image = UIImage(named: "tick")
-        let labelSize = calculateLabelSize(image!.size.width + contentInset)
-        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + image!.size.width + contentInset,
+        let labelSize = calculateLabelSize(image!.size.width + imageMargins.right)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + image!.size.width + imageMargins.right,
             ceil(labelSize.height) + 2 * contentInset)
         
         toast = GTToastView(message: "", config: config, image: image!)
@@ -235,11 +248,23 @@ class GTToastViewTests: XCTestCase {
     
     func testSizeThatFits_shouldRestrictSizeOfTheImageTo100() {
         let image = UIImage(named: "bell")
-        let labelSize = calculateLabelSize(100 + contentInset)
-        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + contentInset,
+        let labelSize = calculateLabelSize(100 + imageMargins.right)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + imageMargins.right,
             ceil(labelSize.height) + 2 * contentInset)
     
         toast = GTToastView(message: "", config: config, image: image!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldIncludeImageInsetsWhenCalculatingSize() {
+        let imageMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let image = UIImage(named: "bell")
+        let labelSize = calculateLabelSize(100 + imageMargins.right + imageMargins.left)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + imageMargins.right + imageMargins.left,
+            ceil(labelSize.height) + 2 * contentInset + imageMargins.top + imageMargins.bottom)
+        
+        toast = GTToastView(message: "", config: GTToastConfig(imageMargins: imageMargins), image: image!)
         
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }

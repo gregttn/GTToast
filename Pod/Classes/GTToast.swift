@@ -48,6 +48,7 @@ public struct GTToastConfig {
     let animation: GTToastAnimation
     let bottomMargin: CGFloat
     let textAlignment: NSTextAlignment
+    let imageMargins: UIEdgeInsets
     
     public init(
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
@@ -57,7 +58,8 @@ public struct GTToastConfig {
         backgroundColor: UIColor = UIColor.blackColor(),
         animation: GTToastAnimation = .BottomSlideIn,
         displayInterval: NSTimeInterval = 4,
-        bottomMargin: CGFloat = 5.0)
+        bottomMargin: CGFloat = 5.0,
+        imageMargins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5))
     {
         self.contentInsets = contentInsets
         self.font = font
@@ -67,6 +69,7 @@ public struct GTToastConfig {
         self.displayInterval = displayInterval
         self.bottomMargin = bottomMargin
         self.textAlignment = textAlignment
+        self.imageMargins = imageMargins
     }
 }
 
