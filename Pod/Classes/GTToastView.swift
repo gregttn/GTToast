@@ -17,6 +17,7 @@ public class GTToastView: UIView, GTAnimatable {
     private let message: String
     
     private var messageLabel: UILabel!
+    private var imageView: UIImageView!
     
     override public var frame: CGRect {
         didSet {
@@ -24,11 +25,24 @@ public class GTToastView: UIView, GTAnimatable {
                 return
             }
             
+            let contentHeight: CGFloat = frame.size.height - config.contentInsets.top - config.contentInsets.right
+            
             messageLabel.frame = CGRectMake(
                 config.contentInsets.left + totalImageWidth(),
                 config.contentInsets.top,
                 frame.size.width - config.contentInsets.right - config.contentInsets.left - totalImageWidth(),
-                frame.size.height - config.contentInsets.top - config.contentInsets.right
+                contentHeight
+            )
+            
+            guard let _ = image else {
+                return
+            }
+            
+            imageView.frame = CGRectMake(
+                config.contentInsets.top,
+                config.contentInsets.left,
+                imageWidth(),
+                contentHeight
             )
         }
     }
@@ -53,6 +67,12 @@ public class GTToastView: UIView, GTAnimatable {
         
         messageLabel = createLabel()
         addSubview(messageLabel)
+        
+        if let image = image {
+            imageView = createImageView()
+            imageView.image = image
+            addSubview(imageView)
+        }
     }
     
     // MARK: creating views
@@ -70,6 +90,13 @@ public class GTToastView: UIView, GTAnimatable {
         return label
     }
     
+    private func createImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        return imageView
+    }
+    
     // MARK: size calculations
     
     public override func sizeThatFits(size: CGSize) -> CGSize {
@@ -85,12 +112,21 @@ public class GTToastView: UIView, GTAnimatable {
     }
     
     private func totalImageWidth() -> CGFloat {
+        guard let _ = image else {
+            return 0
+        }
+        
+        let width: CGFloat = imageWidth()
+        
+        return width + imageRightMargin
+    }
+    
+    private func imageWidth() -> CGFloat {
         guard let image = image else {
             return 0
         }
         
-        let imageWidth: CGFloat = image.size.width > maxImageWidth ? maxImageWidth : image.size.width
-        return imageWidth + imageRightMargin
+        return image.size.width > maxImageWidth ? maxImageWidth : image.size.width
     }
     
     public func show() {

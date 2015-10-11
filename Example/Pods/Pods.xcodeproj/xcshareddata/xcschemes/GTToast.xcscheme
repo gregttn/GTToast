@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "923B6BE83B008EE61E5C1668"
+               BlueprintIdentifier = "089EC3956E4CD27328811906"
                BuildableName = "GTToast.framework"
                BlueprintName = "GTToast"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -76,6 +76,43 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(messageLabel.frame, expectedFrame)
     }
     
+    func testInit_shouldHaveImageViewWhenImageProvided() {
+        let image = UIImage(named: "tick")
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let imageView = toast.subviews[1]
+        
+        XCTAssertTrue(imageView .isKindOfClass(UIImageView))
+        XCTAssertEqual(imageView.frame, CGRectMake(3.0, 3.0, image!.size.width, 94.0))
+    }
+    
+    func testInit_shouldAssignImageToImageView() {
+        let image = UIImage(named: "tick")
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let imageView: UIImageView = toast.subviews[1] as! UIImageView
+        
+        XCTAssertEqual(imageView.image!, image)
+    }
+    
+    func testInit_imageViewShouldHaveCorrectAspectRatio() {
+        let image = UIImage(named: "tick")
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let imageView: UIImageView = toast.subviews[1] as! UIImageView
+        
+        XCTAssertEqual(imageView.contentMode, UIViewContentMode.ScaleAspectFit)
+    }
+    
+    func testInit_shouldNotAddImageViewWhenNoImage() {
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        XCTAssertFalse(toast.subviews.contains({ $0.isKindOfClass(UIImageView) }))
+    }
+    
     func testInit_messageLabelShouldHaveTransparentBackground() {
         let messageLabel = toast.subviews[0] as! UILabel
         
