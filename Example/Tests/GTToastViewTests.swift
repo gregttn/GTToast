@@ -268,7 +268,7 @@ class GTToastViewTests: XCTestCase {
         let imageMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let labelSize = calculateLabelSize(100 + imageMargins.right + imageMargins.left)
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + imageMargins.right + imageMargins.left,
-            ceil(labelSize.height) + 2 * contentInset + imageMargins.top + imageMargins.bottom)
+            ceil(labelSize.height) + 2 * contentInset)
         
         updateToast(config: GTToastConfig(imageMargins: imageMargins), image: bigImage!)
         

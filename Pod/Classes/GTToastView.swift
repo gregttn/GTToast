@@ -91,7 +91,7 @@ public class GTToastView: UIView, GTAnimatable {
         let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.left - config.contentInsets.right - totalImageWidth()
         let labelSize = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
         
-        let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom + config.imageMargins.top + config.imageMargins.bottom
+        let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
         let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right + totalImageWidth()
         
         return CGSizeMake(width, height)
