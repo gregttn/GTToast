@@ -88,30 +88,31 @@ public class GTToastView: UIView, GTAnimatable {
     public override func sizeThatFits(size: CGSize) -> CGSize {
         let screenSize = UIScreen.mainScreen().bounds
         
-        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.left - config.contentInsets.right - totalImageWidth()
+        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.leftAndRight - totalImageWidth()
         let labelSize = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
         
-        let height = ceil(labelSize.height) + config.contentInsets.top + config.contentInsets.bottom
-        let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right + totalImageWidth()
+        let height = ceil(labelSize.height) + config.contentInsets.topAndBottom
+        let width = ceil(labelSize.width) + config.contentInsets.leftAndRight + totalImageWidth()
         
         return CGSizeMake(width, height)
     }
     
     private func imageViewFrame() -> CGRect {
         var x: CGFloat = 0
+        let insetsSum = config.contentInsets.sum(config.imageMargins)
         
         switch config.imageAlignment {
         case .Left:
-            x = config.contentInsets.left + config.imageMargins.left
+            x = insetsSum.left
         case .Right:
-            x = frame.width - config.contentInsets.right - config.imageMargins.right - imageWidth()
+            x = frame.width - insetsSum.right - imageWidth()
         }
         
         return CGRectMake(
             x,
-            config.contentInsets.top + config.imageMargins.top,
+            insetsSum.top,
             imageWidth(),
-            contentHeight() - config.imageMargins.top - config.imageMargins.bottom
+            contentHeight() - config.imageMargins.topAndBottom
         )
     }
     
@@ -128,7 +129,7 @@ public class GTToastView: UIView, GTAnimatable {
         return CGRectMake(
             x,
             config.contentInsets.top,
-            frame.size.width - config.contentInsets.right - config.contentInsets.left - totalImageWidth(),
+            frame.size.width - config.contentInsets.leftAndRight - totalImageWidth(),
             contentHeight()
         )
     }
@@ -140,7 +141,7 @@ public class GTToastView: UIView, GTAnimatable {
         
         let width: CGFloat = imageWidth()
         
-        return width + config.imageMargins.left + config.imageMargins.right
+        return width + config.imageMargins.leftAndRight
     }
     
     private func imageWidth() -> CGFloat {
@@ -152,7 +153,7 @@ public class GTToastView: UIView, GTAnimatable {
     }
     
     private func contentHeight() -> CGFloat {
-        return frame.size.height - config.contentInsets.top - config.contentInsets.right
+        return frame.size.height - config.contentInsets.topAndBottom
     }
     
     public func show() {

@@ -10,6 +10,7 @@
 		07F3B06011FD60FFAF88160B2B923D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B346B135BFE24A07E1FBF143D7FCDE84 /* Foundation.framework */; };
 		1409634EC51F34ABCD80D55202E97D15 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6BCDDCC122FA1E4C510538FD865A99 /* UIFontExtensions.swift */; };
 		5544123DFB62D5A6B73C9E6696334569 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B346B135BFE24A07E1FBF143D7FCDE84 /* Foundation.framework */; };
+		63E6C6551BCC547B00058B85 /* UIEdgeInsetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6C6541BCC547B00058B85 /* UIEdgeInsetsExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		770978E2C97A783845B4BD36ACF637C8 /* Pods-GTToast_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DEEDDA03798B61C63A8123985E7E7D /* Pods-GTToast_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		790F73F0A7A05F215371D4FE86D99A37 /* Pods-GTToast_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8849D72FDBE2A10336B91CB533F63 /* Pods-GTToast_Tests-dummy.m */; };
 		7E4CA9F94632B7E4605644A31C7F738E /* GTToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE1833F0C1D83D2FBEA8815D85C746 /* GTToast.swift */; };
@@ -70,6 +71,7 @@
 		5C85B9227BADBCEF0EF12AB983856AFB /* GTToast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTToast-prefix.pch"; sourceTree = "<group>"; };
 		626A593D43682470A565976E550DD121 /* Pods-GTToast_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GTToast_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		638D017068A9B2750E255B79BAEE59E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63E6C6541BCC547B00058B85 /* UIEdgeInsetsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtension.swift; sourceTree = "<group>"; };
 		660A2B354653562B90F3588E46D86521 /* Pods_GTToast_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		670ACC5B3A5E69E5B7C262CDF1E621FC /* Pods-GTToast_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GTToast_Example-umbrella.h"; sourceTree = "<group>"; };
 		6C788D3EFFF87B3AEDB17D4E8278E410 /* Pods-GTToast_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GTToast_Example-resources.sh"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				56BA64070D596E2F372EEDD4E897B919 /* GTToastAnimation.swift */,
 				0717EB44A109C70AF772625CE68F57A9 /* GTToastView.swift */,
 				DE6BCDDCC122FA1E4C510538FD865A99 /* UIFontExtensions.swift */,
+				63E6C6541BCC547B00058B85 /* UIEdgeInsetsExtension.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				7E4CA9F94632B7E4605644A31C7F738E /* GTToast.swift in Sources */,
 				A774A10B26ED1FDF83AADC33FEE0BBF8 /* GTToastAnimation.swift in Sources */,
 				E46DF2421E39DC600C5D46AF4D4ADA34 /* GTToastView.swift in Sources */,
+				63E6C6551BCC547B00058B85 /* UIEdgeInsetsExtension.swift in Sources */,
 				1409634EC51F34ABCD80D55202E97D15 /* UIFontExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
