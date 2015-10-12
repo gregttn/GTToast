@@ -24,25 +24,13 @@ public class GTToastView: UIView, GTAnimatable {
                 return
             }
             
-            let contentHeight: CGFloat = frame.size.height - config.contentInsets.top - config.contentInsets.right
-            
-            messageLabel.frame = CGRectMake(
-                config.contentInsets.left + totalImageWidth(),
-                config.contentInsets.top,
-                frame.size.width - config.contentInsets.right - config.contentInsets.left - totalImageWidth(),
-                contentHeight
-            )
+            messageLabel.frame = labelFrame()
             
             guard let _ = image else {
                 return
             }
             
-            imageView.frame = CGRectMake(
-                config.contentInsets.left + config.imageMargins.left,
-                config.contentInsets.top + config.imageMargins.top,
-                imageWidth(),
-                contentHeight - config.imageMargins.top - config.imageMargins.bottom
-            )
+            imageView.frame = imageViewFrame()
         }
     }
     
@@ -96,8 +84,7 @@ public class GTToastView: UIView, GTAnimatable {
         return imageView
     }
     
-    // MARK: size calculations
-    
+    // MARK: size and frame calculation
     public override func sizeThatFits(size: CGSize) -> CGSize {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -108,6 +95,42 @@ public class GTToastView: UIView, GTAnimatable {
         let width = ceil(labelSize.width) + config.contentInsets.left + config.contentInsets.right + totalImageWidth()
         
         return CGSizeMake(width, height)
+    }
+    
+    private func imageViewFrame() -> CGRect {
+        var x: CGFloat = 0
+        
+        switch config.imageAlignment {
+        case .Left:
+            x = config.contentInsets.left + config.imageMargins.left
+        case .Right:
+            x = frame.width - config.contentInsets.right - config.imageMargins.right - imageWidth()
+        }
+        
+        return CGRectMake(
+            x,
+            config.contentInsets.top + config.imageMargins.top,
+            imageWidth(),
+            contentHeight() - config.imageMargins.top - config.imageMargins.bottom
+        )
+    }
+    
+    private func labelFrame() -> CGRect {
+        var x: CGFloat = 0
+        
+        switch config.imageAlignment {
+        case .Left:
+            x = config.contentInsets.left + totalImageWidth()
+        case .Right:
+            x = config.contentInsets.left
+        }
+        
+        return CGRectMake(
+            x,
+            config.contentInsets.top,
+            frame.size.width - config.contentInsets.right - config.contentInsets.left - totalImageWidth(),
+            contentHeight()
+        )
     }
     
     private func totalImageWidth() -> CGFloat {
@@ -126,6 +149,10 @@ public class GTToastView: UIView, GTAnimatable {
         }
         
         return image.size.width > maxImageWidth ? maxImageWidth : image.size.width
+    }
+    
+    private func contentHeight() -> CGFloat {
+        return frame.size.height - config.contentInsets.top - config.contentInsets.right
     }
     
     public func show() {

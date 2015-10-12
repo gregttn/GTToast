@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var animationPicker: UIPickerView!
     @IBOutlet weak var showImageSwitch: UISwitch!
     @IBOutlet weak var textAlignment: UISegmentedControl!
+    @IBOutlet weak var imageAlignment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let config = GTToastConfig(
             animation: GTToastAnimation(rawValue: selectedAnimation)!,
-            textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!
+            textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!,
+            imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!
         )
         
         let image: UIImage? = showImageSwitch.on ? UIImage(named: "tick") : .None

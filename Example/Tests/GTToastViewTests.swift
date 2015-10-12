@@ -60,6 +60,7 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(messageLabel.frame, CGRectMake(3.0, 3.0, 94.0, 94.0))
     }
     
+    
     func testInit_shouldAlignLabelAccordingToSettings() {
         let config = GTToastConfig(textAlignment: NSTextAlignment.Left)
         toast = GTToastView(message: "", config: config)
@@ -87,6 +88,19 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(messageLabel.frame, expectedFrame)
     }
     
+    func testInit_shouldHaveMessageLabelWithCorrectFrameWhenImageOnTheRight() {
+        let image = UIImage(named: "tick")
+        let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let config = GTToastConfig(imageMargins: imageMargins, imageAlignment: GTToastAlignment.Right)
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let messageLabel = toast.subviews[0]
+        
+        XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
+        XCTAssertEqual(messageLabel.frame, CGRectMake(3.0, 3.0, 94.0 - image!.size.width -  imageMargins.left - imageMargins.right, 94.0))
+    }
+    
     func testInit_shouldHaveImageViewWhenImageProvided() {
         let image = UIImage(named: "tick")
         toast = GTToastView(message: "", config: config, image: image!)
@@ -96,6 +110,20 @@ class GTToastViewTests: XCTestCase {
         
         XCTAssertTrue(imageView .isKindOfClass(UIImageView))
         XCTAssertEqual(imageView.frame, CGRectMake(3.0, 3.0, image!.size.width, 94.0))
+    }
+    
+    func testInit_shouldHaveImageViewOnTheRight() {
+        let image = UIImage(named: "tick")
+        let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let config = GTToastConfig(imageMargins: imageMargins, imageAlignment: GTToastAlignment.Right)
+        toast = GTToastView(message: "", config: config, image: image!)
+        toast.frame = CGRectMake(100, 100, 100, 100)
+        
+        let imageView = toast.subviews[1]
+        
+        let expectedX: CGFloat = toast.frame.size.width - contentInset - imageMargins.right - image!.size.width
+        XCTAssertTrue(imageView .isKindOfClass(UIImageView))
+        XCTAssertEqual(imageView.frame, CGRectMake(expectedX, 8, image!.size.width, 82.0))
     }
     
     func testInit_shouldRespectImageInsetsWhenCreatingImageView() {
