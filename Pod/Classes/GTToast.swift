@@ -56,7 +56,7 @@ public struct GTToastConfig {
         font: UIFont = GTToastConfig.defaultFont,
         textColor: UIColor = UIColor.whiteColor(),
         textAlignment: NSTextAlignment = .Center,
-        backgroundColor: UIColor = UIColor.blackColor(),
+        backgroundColor: UIColor = UIColor.blackColor().colorWithAlphaComponent(0.8),
         animation: GTToastAnimation = .BottomSlideIn,
         displayInterval: NSTimeInterval = 4,
         bottomMargin: CGFloat = 5.0,

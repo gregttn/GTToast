@@ -37,11 +37,11 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testInit_shouldHaveCorrectBackgroundColor() {
-        let config = GTToastConfig(backgroundColor: UIColor.redColor())
+        let config = GTToastConfig(backgroundColor: UIColor.redColor().colorWithAlphaComponent(0.5))
         
         updateToast(config: config)
         
-        let expectedColor = UIColor.redColor().colorWithAlphaComponent(0.8).CGColor
+        let expectedColor = UIColor.redColor().colorWithAlphaComponent(0.5).CGColor
 
         XCTAssertTrue(CGColorEqualToColor(toast.backgroundColor?.CGColor, expectedColor))
     }

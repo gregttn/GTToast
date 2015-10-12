@@ -49,7 +49,7 @@ public class GTToastView: UIView, GTAnimatable {
         super.init(frame: CGRectZero)
         
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
-        self.backgroundColor = config.backgroundColor.colorWithAlphaComponent(0.8)
+        self.backgroundColor = config.backgroundColor
         self.layer.cornerRadius = 3.0
         
         messageLabel = createLabel()
