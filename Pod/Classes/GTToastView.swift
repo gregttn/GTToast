@@ -109,18 +109,18 @@ public class GTToastView: UIView, GTAnimatable {
     
     private func imageViewFrame() -> CGRect {
         var x: CGFloat = 0
-        let insetsSum = config.contentInsets.sum(config.imageMargins)
+        let allInsets = config.contentInsets + config.imageMargins
         
         switch config.imageAlignment {
         case .Left:
-            x = insetsSum.left
+            x = allInsets.left
         case .Right, .Top:
-            x = frame.width - insetsSum.right - imageSize().width
+            x = frame.width - allInsets.right - imageSize().width
         }
         
         return CGRectMake(
             x,
-            insetsSum.top,
+            allInsets.top,
             imageSize().width,
             contentHeight() - config.imageMargins.topAndBottom
         )
