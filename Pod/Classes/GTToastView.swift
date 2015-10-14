@@ -117,7 +117,7 @@ public class GTToastView: UIView, GTAnimatable {
         case .Right, .Top:
             x = frame.width - insetsSum.right - imageSize().width
         }
-         
+        
         return CGRectMake(
             x,
             insetsSum.top,
