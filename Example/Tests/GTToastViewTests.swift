@@ -12,6 +12,7 @@ class GTToastViewTests: XCTestCase {
     let config = GTToastConfig()
     let smallImage = UIImage(named: "tick")
     let bigImage = UIImage(named: "bell")
+    let tallImage = UIImage(named: "tallImage")
     
     override func setUp() {
         super.setUp()
@@ -245,7 +246,7 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testSizeThatFits_shouldIncludeSizeOfTheImageWhenPresent() {
-        let labelSize = calculateLabelSize(smallImage!.size.width + imageMargins.right)
+        let labelSize = calculateLabelSize(imageTotalWidth: smallImage!.size.width + imageMargins.right)
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + smallImage!.size.width + imageMargins.right,
             ceil(labelSize.height) + 2 * contentInset)
         
@@ -255,7 +256,7 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testSizeThatFits_shouldRestrictSizeOfTheImageTo100() {
-        let labelSize = calculateLabelSize(100 + imageMargins.right)
+        let labelSize = calculateLabelSize(imageTotalWidth: 100 + imageMargins.right)
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + imageMargins.right,
             ceil(labelSize.height) + 2 * contentInset)
     
@@ -266,7 +267,7 @@ class GTToastViewTests: XCTestCase {
     
     func testSizeThatFits_shouldIncludeImageInsetsWhenCalculatingSize() {
         let imageMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let labelSize = calculateLabelSize(100 + imageMargins.right + imageMargins.left)
+        let labelSize = calculateLabelSize(imageTotalWidth: 100 + imageMargins.right + imageMargins.left)
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 100 + imageMargins.right + imageMargins.left,
             ceil(labelSize.height) + 2 * contentInset)
         
@@ -275,10 +276,36 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }
     
-    private func calculateLabelSize(imageTotalWidth: CGFloat = 0) -> CGSize {
+    func testSizeThatFits_shouldCalculateAppropriateFrameWhenImageOnTop() {
+        let veryLongMessage = "This is very long message, longer images width"
+        let labelSize = calculateLabelSize(veryLongMessage, imageTotalWidth: 0)
+        let expectedSize = CGSizeMake(
+            ceil(labelSize.width) + 2 * contentInset,
+            ceil(labelSize.height) + 2 * contentInset + smallImage!.size.height + imageMargins.top + imageMargins.bottom
+        )
+        
+        toast = GTToastView(message: veryLongMessage, config: GTToastConfig(imageAlignment: .Top), image: smallImage!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldRestrictImageHeightTo200WhenOnTop() {
+        let veryLongMessage = "This is very long message, longer images width"
+        let labelSize = calculateLabelSize(veryLongMessage, imageTotalWidth: 0)
+        let expectedSize = CGSizeMake(
+            ceil(labelSize.width) + 2 * contentInset,
+            ceil(labelSize.height) + 2 * contentInset + 200 + imageMargins.top + imageMargins.bottom
+        )
+        
+        toast = GTToastView(message: veryLongMessage, config: GTToastConfig(imageAlignment: .Top), image: tallImage!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    private func calculateLabelSize(message: String = "", imageTotalWidth: CGFloat = 0) -> CGSize {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        return NSString(string: "").boundingRectWithSize(
+        return NSString(string: message).boundingRectWithSize(
             CGSizeMake(screenSize.width - 2 * margin - 2 * contentInset - imageTotalWidth, 0),
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],

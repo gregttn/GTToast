@@ -79,5 +79,6 @@ public struct GTToastConfig {
 public enum GTToastAlignment : Int {
     case Left
     case Right
+    case Top
 }
 
