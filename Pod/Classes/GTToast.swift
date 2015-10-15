@@ -60,7 +60,7 @@ public struct GTToastConfig {
         animation: GTToastAnimation = .BottomSlideIn,
         displayInterval: NSTimeInterval = 4,
         bottomMargin: CGFloat = 5.0,
-        imageMargins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5),
+        imageMargins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
         imageAlignment: GTToastAlignment = .Left)
     {
         self.contentInsets = contentInsets

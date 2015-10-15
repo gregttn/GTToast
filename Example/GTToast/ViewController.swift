@@ -17,6 +17,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var showImageSwitch: UISwitch!
     @IBOutlet weak var textAlignment: UISegmentedControl!
     @IBOutlet weak var imageAlignment: UISegmentedControl!
+    @IBOutlet weak var imgMarginTop: UITextField!
+    @IBOutlet weak var imgMarginLeft: UITextField!
+    @IBOutlet weak var imgMarginBottom: UITextField!
+    @IBOutlet weak var imgMarginRight: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let config = GTToastConfig(
             animation: GTToastAnimation(rawValue: selectedAnimation)!,
             textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!,
-            imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!
+            imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!,
+            imageMargins: selectedMargins()
         )
         
         let image: UIImage? = showImageSwitch.on ? UIImage(named: "tick") : .None
@@ -39,6 +44,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             config: config,
             image: image)
         .show()
+    }
+    
+    private func selectedMargins() -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: textFieldValueToCGFloat(imgMarginTop),
+            left: textFieldValueToCGFloat(imgMarginLeft),
+            bottom: textFieldValueToCGFloat(imgMarginBottom),
+            right: textFieldValueToCGFloat(imgMarginRight))
+    }
+    
+    private func textFieldValueToCGFloat(textField: UITextField) -> CGFloat {
+        guard let value = textField.text,  let number = NSNumberFormatter().numberFromString(value) else {
+            return 0
+        }
+        
+        return CGFloat(number)
     }
     
     override func didReceiveMemoryWarning() {

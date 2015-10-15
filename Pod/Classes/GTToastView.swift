@@ -80,7 +80,7 @@ public class GTToastView: UIView, GTAnimatable {
     private func createImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        
+
         return imageView
     }
     
@@ -118,39 +118,58 @@ public class GTToastView: UIView, GTAnimatable {
     
     private func imageViewFrame() -> CGRect {
         var x: CGFloat = 0
+        var y: CGFloat = 0
+        var width: CGFloat = 0
+        var height: CGFloat = 0
+
         let allInsets = config.contentInsets + config.imageMargins
         
         switch config.imageAlignment {
         case .Left:
             x = allInsets.left
-        case .Right, .Top:
+            y = allInsets.top
+            width = imageSize().width
+            height = contentHeight() - config.imageMargins.topAndBottom
+        case .Right:
             x = frame.width - allInsets.right - imageSize().width
+            y = allInsets.top
+            width = imageSize().width
+            height = contentHeight() - config.imageMargins.topAndBottom
+        case .Top:
+            x = allInsets.left
+            y = allInsets.top
+            width = frame.size.width - allInsets.leftAndRight
+            height = imageSize().height
         }
         
-        return CGRectMake(
-            x,
-            allInsets.top,
-            imageSize().width,
-            contentHeight() - config.imageMargins.topAndBottom
-        )
+        return CGRectMake(x, y, width, height)
     }
     
     private func labelFrame() -> CGRect {
         var x: CGFloat = 0
+        var y: CGFloat = 0
+        var width: CGFloat = 0
+        var height: CGFloat = 0
         
         switch config.imageAlignment {
         case .Left:
             x = config.contentInsets.left + imageWithMarginsSize().width
-        case .Right, .Top:
+            y = config.contentInsets.top
+            width = frame.size.width - config.contentInsets.leftAndRight - imageWithMarginsSize().width
+            height = contentHeight()
+        case .Right:
             x = config.contentInsets.left
+            y = config.contentInsets.top
+            width = frame.size.width - config.contentInsets.leftAndRight - imageWithMarginsSize().width
+            height = contentHeight()
+        case .Top:
+            x = config.contentInsets.left
+            y = config.contentInsets.top + config.imageMargins.topAndBottom + imageSize().height
+            width = frame.size.width - config.contentInsets.leftAndRight
+            height = frame.size.height - config.contentInsets.topAndBottom - config.imageMargins.topAndBottom - imageSize().height
         }
         
-        return CGRectMake(
-            x,
-            config.contentInsets.top,
-            frame.size.width - config.contentInsets.leftAndRight - imageWithMarginsSize().width,
-            contentHeight()
-        )
+        return CGRectMake(x, y, width, height)
     }
     
     private func imageWithMarginsSize() -> CGSize {
