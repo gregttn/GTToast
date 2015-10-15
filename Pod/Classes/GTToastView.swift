@@ -86,8 +86,23 @@ public class GTToastView: UIView, GTAnimatable {
     
     // MARK: size and frame calculation
     public override func sizeThatFits(size: CGSize) -> CGSize {
-        let screenSize = UIScreen.mainScreen().bounds
+        let imageLocationAdjustment = imageLocationSizeAdjustment()
+        let labelSize = calculateLabelSize(imageLocationAdjustment.width)
         
+        let height = ceil(labelSize.height) + config.contentInsets.topAndBottom + imageLocationAdjustment.height
+        let width = ceil(labelSize.width) + config.contentInsets.leftAndRight + imageLocationAdjustment.width
+        
+        return CGSizeMake(width, height)
+    }
+    
+    private func calculateLabelSize(widthAdjustment: CGFloat) -> CGSize {
+        let screenSize = UIScreen.mainScreen().bounds
+        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.leftAndRight - widthAdjustment
+        
+        return config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
+    }
+    
+    private func imageLocationSizeAdjustment() -> CGSize {
         var imageWidthWithMargins: CGFloat = 0
         var imageHeightWithMargins: CGFloat = 0
         
@@ -98,13 +113,7 @@ public class GTToastView: UIView, GTAnimatable {
             imageHeightWithMargins = imageWithMarginsSize().height
         }
         
-        let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.leftAndRight - imageWidthWithMargins
-        let labelSize = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
-        
-        let height = ceil(labelSize.height) + config.contentInsets.topAndBottom + imageHeightWithMargins
-        let width = ceil(labelSize.width) + config.contentInsets.leftAndRight + imageWidthWithMargins
-        
-        return CGSizeMake(width, height)
+        return CGSizeMake(imageWidthWithMargins, imageHeightWithMargins)
     }
     
     private func imageViewFrame() -> CGRect {
