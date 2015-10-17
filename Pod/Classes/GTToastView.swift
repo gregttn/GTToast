@@ -80,7 +80,7 @@ public class GTToastView: UIView, GTAnimatable {
     private func createImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
-
+        
         return imageView
     }
     
@@ -169,9 +169,14 @@ public class GTToastView: UIView, GTAnimatable {
             y = config.contentInsets.top
             width = frame.size.width - config.contentInsets.leftAndRight - imageWithMarginsSize().width
             height = contentHeight()
-        case .Top, .Bottom:
+        case .Top:
             x = config.contentInsets.left
             y = config.contentInsets.top + config.imageMargins.topAndBottom + imageSize().height
+            width = frame.size.width - config.contentInsets.leftAndRight
+            height = frame.size.height - config.contentInsets.topAndBottom - config.imageMargins.topAndBottom - imageSize().height
+        case .Bottom:
+            x = config.contentInsets.left
+            y = config.contentInsets.top
             width = frame.size.width - config.contentInsets.leftAndRight
             height = frame.size.height - config.contentInsets.topAndBottom - config.imageMargins.topAndBottom - imageSize().height
         }

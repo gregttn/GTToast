@@ -114,6 +114,24 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(messageLabel.frame, expectedFrame)
     }
     
+    func testInit_shouldHaveMessageLabelWithCorrectFrameWhenImageOnTheBottom() {
+        let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let config = GTToastConfig(imageMargins: imageMargins, imageAlignment: GTToastAlignment.Bottom)
+        updateToast(frame: CGRectMake(100, 100, 100, 100), config: config, image: smallImage!)
+        
+        let messageLabel = toast.subviews[0]
+        
+        let expectedFrame = CGRectMake(
+            contentInset,
+            contentInset,
+            toast.frame.size.width - 2 * contentInset,
+            toast.frame.size.height - 2 * contentInset - imageMargins.top - imageMargins.bottom - smallImage!.size.height
+        )
+        
+        XCTAssertTrue(messageLabel .isKindOfClass(UILabel))
+        XCTAssertEqual(messageLabel.frame, expectedFrame)
+    }
+    
     func testInit_shouldHaveImageViewWhenImageProvided() {
         updateToast(frame: CGRectMake(100, 100, 100, 100), config: config, image: smallImage!)
         

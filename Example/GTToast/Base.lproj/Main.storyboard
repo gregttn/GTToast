@@ -65,6 +65,7 @@
                                     <segment title="Left"/>
                                     <segment title="Right"/>
                                     <segment title="Top"/>
+                                    <segment title="Bottom"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image margins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QX-8J-LQb">
