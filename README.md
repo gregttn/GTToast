@@ -22,7 +22,7 @@ This will create and show toast with default settings and your message
 GTToast.create("your message", image: yourImage).show()
 ```
 
-This will create and show toast with your message and image displayed on the right.
+This will create and show toast with your message and image displayed on the left.
 
 * Custom toast
 
