@@ -85,5 +85,17 @@ public enum GTToastAlignment : Int {
     case Top
     case Bottom
 
+    public func defaultInsets() -> UIEdgeInsets {
+        switch self {
+        case .Left:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        case .Right:
+            return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        case .Top:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        case .Bottom:
+            return UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        }
+    }
 }
 

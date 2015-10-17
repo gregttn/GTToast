@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        updateImageAlignmentDisplayed(GTToastAlignment.Left)
     }
 
     @IBAction func showToast(sender: AnyObject) {
@@ -60,6 +61,34 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         
         return CGFloat(number)
+    }
+    
+    @IBAction func imageAlignmentSelected(sender: AnyObject) {
+        updateImageAlignmentDisplayed(GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!)
+    }
+    
+    @IBAction func switchDefaultImageMargins(sender: AnyObject) {
+        let control = sender as! UISwitch
+        
+        enableImageMarginTextFields(!control.on)
+        
+        updateImageAlignmentDisplayed(GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!)
+    }
+    
+    private func enableImageMarginTextFields(enabled: Bool) {
+        imgMarginTop.enabled = enabled
+        imgMarginLeft.enabled = enabled
+        imgMarginBottom.enabled = enabled
+        imgMarginRight.enabled = enabled
+    }
+    
+    private func updateImageAlignmentDisplayed(alignment: GTToastAlignment) {
+        let insets = alignment.defaultInsets()
+        
+        imgMarginTop.text = String(insets.top)
+        imgMarginLeft.text = String(insets.left)
+        imgMarginBottom.text = String(insets.bottom)
+        imgMarginRight.text = String(insets.right)
     }
     
     override func didReceiveMemoryWarning() {
