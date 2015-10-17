@@ -48,7 +48,7 @@ You can use GTToastConfig to configure the look of the toast. Here is a list of 
 
 * contentInsets: UIEdgeInsets
 
-Allows you to specify the padding of the toast. Default UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
+Allows you to specify the padding of the toast. Default: *UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)*
 
 * cornerRadius: CGFloat
 
@@ -56,23 +56,23 @@ The corner radius of the toast. Default 3.0
 
 * font: UIFont
 
-Font used to render the text message. Default UIFont.systemFontOfSize(12.0)
+Font used to render the text message. Default: *UIFont.systemFontOfSize(12.0)*
 
 * textColor: UIColor
 
-Text color of the message. Default: UIColor.whiteColor()
+Text color of the message. Default: *UIColor.whiteColor()*
 
 * textAlignment: NSTextAlignment
 
-Alignment of the text. Default: NSTextAlignment.Center
+Alignment of the text. Default: *NSTextAlignment.Center*
 
 * backgroundColor: UIColor
 
-Background color of the toast. Default: UIColor.blackColor().colorWithAlphaComponent(0.8)
+Background color of the toast. Default: *UIColor.blackColor().colorWithAlphaComponent(0.8)*
 
 * animation: GTToastAnimation
 
-The animation type to be used when displaying and hidding the toast. Default: GTToastAnimation.BottomSlideIn (see below for full list)
+The animation type to be used when displaying and hidding the toast. Default: *GTToastAnimation.BottomSlideIn* (see below for full list)
 
 * displayInterval: NSTimeInterval
 
