@@ -41,6 +41,7 @@ public struct GTToastConfig {
     static let defaultFont = UIFont.systemFontOfSize(12.0)
     
     let contentInsets: UIEdgeInsets
+    let cornerRadius: CGFloat
     let font: UIFont
     let textColor: UIColor
     let backgroundColor: UIColor
@@ -53,6 +54,7 @@ public struct GTToastConfig {
     
     public init(
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
+        cornerRadius: CGFloat = 3.0,
         font: UIFont = GTToastConfig.defaultFont,
         textColor: UIColor = UIColor.whiteColor(),
         textAlignment: NSTextAlignment = .Center,
@@ -64,6 +66,7 @@ public struct GTToastConfig {
         imageAlignment: GTToastAlignment = .Left)
     {
         self.contentInsets = contentInsets
+        self.cornerRadius = cornerRadius
         self.font = font
         self.textColor = textColor
         self.backgroundColor = backgroundColor

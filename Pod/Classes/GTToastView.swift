@@ -65,7 +65,7 @@ public class GTToastView: UIView, GTAnimatable {
         
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         self.backgroundColor = config.backgroundColor
-        self.layer.cornerRadius = 3.0
+        self.layer.cornerRadius = config.cornerRadius
         
         messageLabel = createLabel()
         addSubview(messageLabel)
