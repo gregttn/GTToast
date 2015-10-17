@@ -80,5 +80,7 @@ public enum GTToastAlignment : Int {
     case Left
     case Right
     case Top
+    case Bottom
+
 }
 

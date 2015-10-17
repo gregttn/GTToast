@@ -155,6 +155,26 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(imageView.frame, expectedFrame)
     }
     
+    func testInit_shouldHaveImageViewOnTheBottom() {
+        let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let message = "Some message"
+        let config = GTToastConfig(imageMargins: imageMargins, imageAlignment: GTToastAlignment.Bottom)
+        
+        updateToast(message,frame: CGRectMake(100, 100, 100, 100), config: config, image: smallImage!)
+        
+        let imageView = toast.subviews[1]
+        
+        let expectedFrame = CGRectMake(
+            contentInset + imageMargins.left,
+            contentInset + imageMargins.top + ceil(calculateLabelSize(message).height),
+            toast.frame.size.width - contentInset - imageMargins.left - imageMargins.right - contentInset,
+            smallImage!.size.height
+        )
+        
+        XCTAssertTrue(imageView .isKindOfClass(UIImageView))
+        XCTAssertEqual(imageView.frame, expectedFrame)
+    }
+    
     func testInit_shouldRespectImageInsetsWhenCreatingImageView() {
         let imageMargins = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 10)
         updateToast(frame: CGRectMake(100, 100, 100, 100), config: GTToastConfig(imageMargins: imageMargins), image: smallImage!)
@@ -322,6 +342,19 @@ class GTToastViewTests: XCTestCase {
         )
         
         toast = GTToastView(message: veryLongMessage, config: GTToastConfig(imageAlignment: .Top), image: smallImage!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldCalculateAppropriateFrameWhenImageOnTheBottom() {
+        let veryLongMessage = "This is very long message, longer images width"
+        let labelSize = calculateLabelSize(veryLongMessage, imageTotalWidth: 0)
+        let expectedSize = CGSizeMake(
+            ceil(labelSize.width) + 2 * contentInset,
+            ceil(labelSize.height) + 2 * contentInset + smallImage!.size.height + imageMargins.top + imageMargins.bottom
+        )
+        
+        toast = GTToastView(message: veryLongMessage, config: GTToastConfig(imageAlignment: .Bottom), image: smallImage!)
         
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }
