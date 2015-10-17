@@ -84,13 +84,32 @@ Bottom margin of the toast. Default: 5
 
 * imageMargins: UIEdgeInsets
 
-The margins of the image displayed in the toast. Default: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+The margins of the image displayed in the toast. Default: *UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)*
 
 
 * imageAlignment: GTToastAlignment
 
-Allows you to specify where image should be displayed (Top, Bottom, Left or Right). Default: GTToastAlignment.Left
+Allows you to specify where image should be displayed (Top, Bottom, Left or Right). Default: *GTToastAlignment.Left*
 
+You can specify all of the above by creating GTToastConfig
+
+```swift
+GTToastConfig(
+    contentInsets: UIEdgeInsets(top:10, left: 9, bottom: 8, right: 7),
+    cornerRadius: 8.0,
+    font: UIFont.systemFontOfSize(100),
+    textColor: UIColor.redColor(),
+    textAlignment: NSTextAlignment.Right,
+    backgroundColor: UIColor.blueColor().colorWithAlphaComponent(0.8),
+    animation: GTToastAnimation.Scale,
+    displayInterval: 2,
+    bottomMargin: 15.0,
+    imageMargins: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
+    imageAlignment: GTToastAlignment.Top
+)
+```
+
+Only the properties that you want to change can be provided. No need for all of them.
 
 ## GTToastAnimation options
 
