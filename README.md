@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/GTToast.svg?style=flat)](http://cocoapods.org/pods/GTToast)
 [![Platform](https://img.shields.io/cocoapods/p/GTToast.svg?style=flat)](http://cocoapods.org/pods/GTToast)
 
-GTToast is a library written in Swift which allow toast notifcations to be displayed.
+GTToast is a library written in Swift which allows toast notifcations to be displayed. You can create toasts with text and/or images.
+There are many options available to allow you to adapt look and feel of the toast messages to your app.
 
 ![Preview](https://raw.githubusercontent.com/gregttn/GTToast/master/sample.gif)
 
@@ -46,6 +47,7 @@ let toastFactory: GTToast = GTToast(config: config)
 toastFactory.create("your message").show()
 toastFactory.create("your message", image: smallImage).show()
 ```
+
 ## Configuration
 
 You can use GTToastConfig to configure the look of the toast. Here is a list of all possible configuration options that can be specified:
@@ -143,7 +145,8 @@ pod 'GTToast'
 
 ## Running the project
 
-After you cloned the project you will need to run 'pod update' in the Example directory.
+After cloning the project you will need to run 'pod update' in the Example directory.
+To view in XCode open the GTToast.xcworkspace which is located in the Example directory.
 
 ## Author
 
