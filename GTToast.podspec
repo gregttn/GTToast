@@ -9,22 +9,14 @@
 Pod::Spec.new do |s|
   s.name             = "GTToast"
   s.version          = "0.1.0"
-  s.summary          = "A short description of GTToast."
+  s.summary          = "GTToast is a library written in Swift which allows toast notifcations to be displayed. You can create toasts with text and/or images."
+  s.description      = "GTToast is a library written in Swift which allows toast notifcations to be displayed. You can create toasts with text and/or images. There are many options available to allow you to adapt look and feel of the toast messages to your app."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
-
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/GTToast"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/gregttn/GTToast"
   s.license          = 'MIT'
   s.author           = { "gregttn" => "gregttn@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/GTToast.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/gregttn/GTToast.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/gregttn'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -34,7 +26,5 @@ Pod::Spec.new do |s|
     'GTToast' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
