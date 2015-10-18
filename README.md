@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/GTToast.svg?style=flat)](http://cocoapods.org/pods/GTToast)
 [![Platform](https://img.shields.io/cocoapods/p/GTToast.svg?style=flat)](http://cocoapods.org/pods/GTToast)
 
+GTToast is a library written in Swift which allow toast notifcations to be displayed.
+
+![Preview](https://raw.githubusercontent.com/gregttn/GTToast/master/sample.gif)
+
 ## Usage
 
 There are multiple ways you can display toast message:
@@ -32,9 +36,9 @@ GTToast.create("your message", config: GTToastConfig(), image: yourImage).show()
 
 This will create and show toast with message and custom config. You can find all properties of GTToastConfig below
 
-* All toast with the same configuration
+* All toasts with the same configuration
 
-You can specify global configuration for your toast.
+You can specify global configuration for all of your toast.
 
 ```swift
 let config: GTToastConfig = GTToastConfig()
@@ -129,6 +133,13 @@ This control is written in Swift 2. You will need at least XCode 7.
 Also this project uses Cocoapods.
 
 ## Installation
+
+Install GTToast by using [CocoaPods](http://cocoapods.org). Include the following in your Podfile:
+
+```ruby
+use_frameworks!
+pod 'GTToast'
+```
 
 ## Running the project
 
