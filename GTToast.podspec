@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "GTToast"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "GTToast is a library written in Swift which allows toast notifcations to be displayed. You can create toasts with text and/or images."
   s.description      = "GTToast is a library written in Swift which allows toast notifcations to be displayed. You can create toasts with text and/or images. There are many options available to allow you to adapt look and feel of the toast messages to your app."
 
