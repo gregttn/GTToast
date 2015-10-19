@@ -51,6 +51,7 @@ public struct GTToastConfig {
     let textAlignment: NSTextAlignment
     let imageMargins: UIEdgeInsets
     let imageAlignment: GTToastAlignment
+    let maxImageSize: CGSize
     
     public init(
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
@@ -63,7 +64,8 @@ public struct GTToastConfig {
         displayInterval: NSTimeInterval = 4,
         bottomMargin: CGFloat = 5.0,
         imageMargins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-        imageAlignment: GTToastAlignment = .Left)
+        imageAlignment: GTToastAlignment = .Left,
+        maxImageSize: CGSize = CGSizeMake(100, 200))
     {
         self.contentInsets = contentInsets
         self.cornerRadius = cornerRadius
@@ -76,6 +78,7 @@ public struct GTToastConfig {
         self.textAlignment = textAlignment
         self.imageMargins = imageMargins
         self.imageAlignment = imageAlignment
+        self.maxImageSize = maxImageSize
     }
 }
 

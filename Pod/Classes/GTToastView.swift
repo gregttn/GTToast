@@ -9,7 +9,6 @@
 public class GTToastView: UIView, GTAnimatable {
     private let animationOffset: CGFloat = 20
     private let margin: CGFloat = 5
-    private let maxImageSize: CGSize = CGSizeMake(100, 200)
     
     private let config: GTToastConfig
     private let image: UIImage?
@@ -28,8 +27,8 @@ public class GTToastView: UIView, GTAnimatable {
         }
         
         return CGSizeMake(
-            min(image.size.width, self.maxImageSize.width),
-            min(image.size.height, self.maxImageSize.height)
+            min(image.size.width, self.config.maxImageSize.width),
+            min(image.size.height, self.config.maxImageSize.height)
         )
     }()
     

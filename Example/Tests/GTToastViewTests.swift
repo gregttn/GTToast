@@ -340,6 +340,17 @@ class GTToastViewTests: XCTestCase {
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }
     
+    func testSizeThatFits_shouldRestrictSizeOfTheImageToProvidedAmount() {
+        let config = GTToastConfig(imageMargins: imageMargins, maxImageSize: CGSizeMake(50, 100))
+        let labelSize = calculateLabelSize(imageTotalWidth: 50 + imageMargins.right)
+        let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset + 50 + imageMargins.right,
+            ceil(labelSize.height) + 2 * contentInset)
+        
+        updateToast(config: config, image: bigImage!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
     func testSizeThatFits_shouldIncludeImageInsetsWhenCalculatingSize() {
         let imageMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let labelSize = calculateLabelSize(imageTotalWidth: 100 + imageMargins.right + imageMargins.left)
@@ -386,6 +397,20 @@ class GTToastViewTests: XCTestCase {
         )
         
         toast = GTToastView(message: veryLongMessage, config: GTToastConfig(imageAlignment: .Top), image: tallImage!)
+        
+        XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
+    }
+    
+    func testSizeThatFits_shouldRestrictImageHeightToSpecifiedAmountWhenImageOnTop() {
+        let config = GTToastConfig(imageAlignment: .Top, maxImageSize: CGSizeMake(100, 300))
+        let veryLongMessage = "This is very long message, longer images width"
+        let labelSize = calculateLabelSize(veryLongMessage, imageTotalWidth: 0)
+        let expectedSize = CGSizeMake(
+            ceil(labelSize.width) + 2 * contentInset,
+            ceil(labelSize.height) + 2 * contentInset + 300 + imageMargins.top + imageMargins.bottom
+        )
+        
+        toast = GTToastView(message: veryLongMessage, config: config, image: tallImage!)
         
         XCTAssertEqual(toast.sizeThatFits(CGSizeZero), expectedSize)
     }

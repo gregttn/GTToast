@@ -97,6 +97,10 @@ The margins of the image displayed in the toast. Default: *UIEdgeInsets(top: 0, 
 
 Allows you to specify where image should be displayed (Top, Bottom, Left or Right). Default: *GTToastAlignment.Left*
 
+* maxImageSize: CGSize
+
+Specifes the max image size. The width property is only into account when image is located on the Right or Left. Similarly, the height is only applied when image in Top or Bottom. Default: *CGSize(width: 100, height: 200)*
+
 You can specify all of the above by creating GTToastConfig
 
 ```swift
@@ -111,7 +115,8 @@ GTToastConfig(
     displayInterval: 2,
     bottomMargin: 15.0,
     imageMargins: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
-    imageAlignment: GTToastAlignment.Top
+    imageAlignment: GTToastAlignment.Top,
+    maxImageSize: CGSizeMake(100,100)
 )
 ```
 
