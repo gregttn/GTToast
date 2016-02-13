@@ -137,7 +137,7 @@ GTToastAnimation hold predefined list of animations that can be used for display
 ## Requirements
 
 This control is written in Swift 2. You will need at least XCode 7.
-Also this project uses Cocoapods.
+Also this project uses CocoaPods.
 
 ## Installation
 
