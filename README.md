@@ -136,7 +136,7 @@ GTToastAnimation hold predefined list of animations that can be used for display
 
 ## Requirements
 
-This control is written in Swift 2. You will need at least XCode 7.
+This control is written in Swift 2. You will need at least Xcode 7.
 Also this project uses CocoaPods.
 
 ## Installation
@@ -151,7 +151,7 @@ pod 'GTToast'
 ## Running the project
 
 After cloning the project you will need to run 'pod update' in the Example directory.
-To view in XCode open the GTToast.xcworkspace which is located in the Example directory.
+To view in Xcode open the GTToast.xcworkspace which is located in the Example directory.
 
 ## Author
 
