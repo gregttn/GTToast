@@ -48,6 +48,18 @@ toastFactory.create("your message").show()
 toastFactory.create("your message", image: smallImage).show()
 ```
 
+* Dismiss a toast
+
+It is possible to force toast to disappear. In order to do that you will need to keep the reference to GTToastView
+
+```swift
+var toast: GTToastView = GTToast.create("foo bar")
+toast.show()
+
+// later when you are ready
+toast.dismiss()
+```
+
 ## Configuration
 
 You can use GTToastConfig to configure the look of the toast. Here is a list of all possible configuration options that can be specified:
