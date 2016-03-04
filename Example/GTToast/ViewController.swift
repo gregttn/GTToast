@@ -11,6 +11,7 @@ import GTToast
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     private let animations = ["Alpha", "Scale", "Bottom Slide In", "Left Slide In", "Right Slide In", "Left to Right", "Right to Left"]
+    private var toast: GTToastView!
     
     @IBOutlet weak var showButton: UIButton!
     @IBOutlet weak var animationPicker: UIPickerView!
@@ -33,7 +34,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let selectedAnimation = animationPicker.selectedRowInComponent(0)
         
         let config = GTToastConfig(
-            displayInterval: 2,
+            displayInterval: 4,
             animation: GTToastAnimation(rawValue: selectedAnimation)!,
             textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!,
             imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!,
@@ -42,10 +43,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let image: UIImage? = showImageSwitch.on ? UIImage(named: "tick") : .None
         
-        GTToast.create("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eleifend maximus malesuada. Quisque congue augue vel mauris molestie, nec egestas eros ultrices.",
+        toast = GTToast.create("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eleifend maximus malesuada. Quisque congue augue vel mauris molestie, nec egestas eros ultrices.",
             config: config,
             image: image)
-        .show()
+        toast.show()
+    }
+    
+    @IBAction func hideToast(sender: AnyObject) {
+        if let toast = toast where toast.displayed {
+            toast.dismiss()
+        }
     }
     
     private func selectedMargins() -> UIEdgeInsets {

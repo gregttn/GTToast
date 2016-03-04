@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -156,6 +156,17 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6G9-wl-vQk">
+                                <rect key="frame" x="284" y="510" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RQw-Sw-P4k"/>
+                                    <constraint firstAttribute="width" constant="32" id="jD7-s8-xPa"/>
+                                </constraints>
+                                <state key="normal" title="Hide"/>
+                                <connections>
+                                    <action selector="hideToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nFM-dS-e6l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -176,6 +187,7 @@
                             <constraint firstItem="C9E-kc-aEU" firstAttribute="top" secondItem="ivW-f6-MqX" secondAttribute="bottom" constant="63" id="H0Q-tV-B9P"/>
                             <constraint firstItem="lNt-bR-cEg" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="HaV-34-wsz"/>
                             <constraint firstItem="Ebn-Ph-UuE" firstAttribute="top" secondItem="b37-Tr-CxY" secondAttribute="bottom" constant="28" id="I2v-bR-eUI"/>
+                            <constraint firstItem="6G9-wl-vQk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Ik3-WF-cLa"/>
                             <constraint firstItem="Ydf-wQ-jvO" firstAttribute="top" secondItem="Cdo-xi-ciT" secondAttribute="bottom" constant="20" id="LU6-aG-GQt"/>
                             <constraint firstItem="YWo-tZ-S3A" firstAttribute="top" secondItem="lNt-bR-cEg" secondAttribute="bottom" constant="23" id="Lyk-hy-Trz"/>
                             <constraint firstItem="3Ep-2J-a4J" firstAttribute="leading" secondItem="Cdo-xi-ciT" secondAttribute="trailing" constant="17" id="QO6-cD-7qc"/>
@@ -194,6 +206,7 @@
                             <constraint firstItem="xza-bd-ZyE" firstAttribute="top" secondItem="ivW-f6-MqX" secondAttribute="bottom" constant="63" id="gS6-n7-XB2"/>
                             <constraint firstItem="3Ep-2J-a4J" firstAttribute="top" secondItem="ivW-f6-MqX" secondAttribute="bottom" constant="17" id="jLb-Si-Q8c"/>
                             <constraint firstItem="Ydf-wQ-jvO" firstAttribute="leading" secondItem="3QX-8J-LQb" secondAttribute="trailing" constant="20" id="mBs-wh-AdX"/>
+                            <constraint firstItem="6G9-wl-vQk" firstAttribute="top" secondItem="YWo-tZ-S3A" secondAttribute="bottom" constant="8" id="psl-Sj-bG6"/>
                             <constraint firstItem="Cdo-xi-ciT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="rUd-5m-5CE"/>
                             <constraint firstItem="YWo-tZ-S3A" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="web-q6-77C"/>
                             <constraint firstItem="bCW-7g-iPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wq2-MK-IUv"/>
