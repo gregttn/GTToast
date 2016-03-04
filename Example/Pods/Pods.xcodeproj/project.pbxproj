@@ -7,117 +7,119 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39CF0D208882FAF47D11373C3449A982 /* UIEdgeInsetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7882FB9AA7B92CBFAF8CDE9052434ED5 /* UIEdgeInsetsExtension.swift */; };
-		5544123DFB62D5A6B73C9E6696334569 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D47EF87EE4B11C1031838DF3119276 /* Foundation.framework */; };
-		5873F853C48C9F546874EC1129EF7727 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D47EF87EE4B11C1031838DF3119276 /* Foundation.framework */; };
-		5ACFC801D80FE2093001A6EF9B0C77DE /* GTToast.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3748E1CBE6556EBA3492FECE66A216D0 /* GTToast.bundle */; };
-		770978E2C97A783845B4BD36ACF637C8 /* Pods-GTToast_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DEEDDA03798B61C63A8123985E7E7D /* Pods-GTToast_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		790F73F0A7A05F215371D4FE86D99A37 /* Pods-GTToast_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8849D72FDBE2A10336B91CB533F63 /* Pods-GTToast_Tests-dummy.m */; };
-		7AA3CEA01AB42BCB16B685B65EB363B7 /* GTToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61A35114E8D11BBC56B11F8BCCE977 /* GTToast.swift */; };
-		7EA6E3928DCB3C77D5BFC4D48AED1E60 /* GTToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EFEF768DEB67D7B797091ACE500CF0 /* GTToastView.swift */; };
-		AC9BD31822B26C411310803A6F80B0F7 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43123852E572E60E98F3B945F229A3 /* UIFontExtensions.swift */; };
-		B217DFFFAEDA18E3A8F55C070FDF83E6 /* GTToast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A898BB23A85DC9DD442F9967CA9943 /* GTToast-dummy.m */; };
-		B2FC84A5CEBE418093D48175E246A440 /* GTToast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C764ACBBE45234532FAB978C7296C5 /* GTToast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2FF762A260BD93A9EC3053EBB67F44D /* Pods-GTToast_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1A48BA5AA5772DCC2C542FCDAC9FC6 /* Pods-GTToast_Example-dummy.m */; };
-		CBD8EC7204B1C0B0CA89EE350B865A48 /* Pods-GTToast_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 670ACC5B3A5E69E5B7C262CDF1E621FC /* Pods-GTToast_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8C80C7DF3D31B5E2224D90BA2D53630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D47EF87EE4B11C1031838DF3119276 /* Foundation.framework */; };
-		EF38C5000BB4AED603A38DD61AF08CA8 /* GTToastAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBA424B0515767DCD7C72727E448E9 /* GTToastAnimation.swift */; };
+		1793545117116DB334A1D69F1CAB0797 /* GTToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259308913D6A83EA15971F72F33E7169 /* GTToast.swift */; };
+		280F48AC22E0D16236AECFC88A437BAB /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4605F220220D2AB8ABD62B91F1F72 /* UIFontExtensions.swift */; };
+		2BAA7C9E3402EB5408BE550D68E94936 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		2F630B323FF0B966F79D3E0E2D25B747 /* GTToast.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95171638C152D139CA6BF19E0C6E36A6 /* GTToast.bundle */; };
+		4307049836612CE442A320C60F12870D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
+		44C57D97CB0AB0944DD2EFD3951FD337 /* Pods-GTToast_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14A0B0A8B5763180D367DB0A19E7EA5 /* Pods-GTToast_Example-dummy.m */; };
+		473A17F5F08A774F55D3AC07D64EE805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		5221D53447B6539B6BC0AF7F4A0E9C53 /* Pods-GTToast_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8039764D4399EBF7A69EDA93F9D693C /* Pods-GTToast_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BD66E0D94CF712D8FB8444C29C4766F /* GTToast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 744D6A30820986EBFC20BAE3281F3429 /* GTToast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61DA5009B4F2FCD0A113D031C27E3924 /* GTToast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54896AC20E11064923D3A7FADF9DD241 /* GTToast-dummy.m */; };
+		66806BDD37D2DDAB0F6916742F3D9228 /* GTToastAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAF7D65949C425757B502D5C932995 /* GTToastAnimation.swift */; };
+		670B1E2B9C6E5C28EDED76560782D021 /* Pods-GTToast_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A085B3A4FFFD42904E227613E485CF /* Pods-GTToast_Tests-dummy.m */; };
+		7199D8A8729F732469DA7F3F2B11B36A /* GTToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6F75B19EBF359FEBD6EE9449BC8DE0 /* GTToastView.swift */; };
+		B692E36F51CD131438B65A4FC2A80006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		C336E06D6E5566F3D49DA1F81EB5455E /* Pods-GTToast_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 497C45D44EAE388B2D888F2952CC848E /* Pods-GTToast_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2BE9D01DB833BE0E0575BE3D6BD56A5 /* UIEdgeInsetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D737F16BEF48F580BDC73959BBE99EB /* UIEdgeInsetsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		74F17B614C76A95914D5395C7A4E6440 /* PBXContainerItemProxy */ = {
+		54D9959AE4CBA17891EDE9B0D053BB6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 67D6ECDFA01D78ED79ACDC72F4656429;
+			remoteGlobalIDString = DBE87894F57CDD05C728A074FB99EF16;
+			remoteInfo = GTToast;
+		};
+		B6E051E92D8EBBA28FD85646EF087683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE87894F57CDD05C728A074FB99EF16;
+			remoteInfo = GTToast;
+		};
+		C1CEB0C3C7D636F27DB229B813029E16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10D0E8F1C58B8D6159CD26D5B9E3DEBF;
 			remoteInfo = "GTToast-GTToast";
-		};
-		82904841A1F94DFAC376ACEFC1C93175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FE546BC7E2AE1E8AC48ADEF992309AFB;
-			remoteInfo = GTToast;
-		};
-		9E5C56EAADF230F619EC84C34A1300D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FE546BC7E2AE1E8AC48ADEF992309AFB;
-			remoteInfo = GTToast;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		005B69E3A5025D261EB5C863782C3AA0 /* Pods-GTToast_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GTToast_Tests.modulemap"; sourceTree = "<group>"; };
-		03A898BB23A85DC9DD442F9967CA9943 /* GTToast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTToast-dummy.m"; sourceTree = "<group>"; };
-		077526B205A9227EE653C38BA34F5F06 /* Pods-GTToast_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		0B282A7EE35FB4AA376E6958969CDA86 /* Pods-GTToast_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GTToast_Tests-resources.sh"; sourceTree = "<group>"; };
-		0DCD220E7008D571CEEDCF9DFC167B64 /* Pods-GTToast_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FE3262691E083BFA5FB94B3AF922E45 /* Pods-GTToast_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GTToast_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		1109E670F6EE1A6844C32A9759212DB4 /* GTToast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTToast-prefix.pch"; sourceTree = "<group>"; };
 		15CE8F66AD3CE607CF7AA81F868F30FD /* Pods-GTToast_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GTToast_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1B3E61CA8F0A259A89A924EADF36111F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1848F5BFA3302A7702D368EBB643EB88 /* Pods_GTToast_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECB9947C5A3B5B6A791F58CA4CA2FD3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259308913D6A83EA15971F72F33E7169 /* GTToast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToast.swift; sourceTree = "<group>"; };
 		26F6733055D2DA4C52DADB3CE1C6F012 /* Pods-GTToast_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GTToast_Example-frameworks.sh"; sourceTree = "<group>"; };
-		34268355E4B525BD2111CA0E792C17FD /* GTToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3748E1CBE6556EBA3492FECE66A216D0 /* GTToast.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTToast.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CE4605F220220D2AB8ABD62B91F1F72 /* UIFontExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		2D737F16BEF48F580BDC73959BBE99EB /* UIEdgeInsetsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtension.swift; sourceTree = "<group>"; };
+		2FDA7AFCCBE2CACD7CF71A417CFEC60A /* GTToast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTToast-prefix.pch"; sourceTree = "<group>"; };
 		38248D706BE27587558E5D7118BD4A41 /* Pods-GTToast_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GTToast_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		392EFC564D4D63BB98B54A6B705F7303 /* Pods-GTToast_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GTToast_Example.modulemap"; sourceTree = "<group>"; };
-		39EFEF768DEB67D7B797091ACE500CF0 /* GTToastView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToastView.swift; sourceTree = "<group>"; };
-		3E61A35114E8D11BBC56B11F8BCCE977 /* GTToast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToast.swift; sourceTree = "<group>"; };
-		45C764ACBBE45234532FAB978C7296C5 /* GTToast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTToast-umbrella.h"; sourceTree = "<group>"; };
-		47DEEDDA03798B61C63A8123985E7E7D /* Pods-GTToast_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GTToast_Tests-umbrella.h"; sourceTree = "<group>"; };
+		497C45D44EAE388B2D888F2952CC848E /* Pods-GTToast_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GTToast_Example-umbrella.h"; sourceTree = "<group>"; };
+		54896AC20E11064923D3A7FADF9DD241 /* GTToast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTToast-dummy.m"; sourceTree = "<group>"; };
+		60A085B3A4FFFD42904E227613E485CF /* Pods-GTToast_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GTToast_Tests-dummy.m"; sourceTree = "<group>"; };
 		626A593D43682470A565976E550DD121 /* Pods-GTToast_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GTToast_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		660A2B354653562B90F3588E46D86521 /* Pods_GTToast_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		670ACC5B3A5E69E5B7C262CDF1E621FC /* Pods-GTToast_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GTToast_Example-umbrella.h"; sourceTree = "<group>"; };
+		665E56FA7478C8BE1E5F850737537AD6 /* Pods-GTToast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Example.release.xcconfig"; sourceTree = "<group>"; };
+		69A6F9D06567ABA4BC5C8B243A0DBFC7 /* Pods-GTToast_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6C788D3EFFF87B3AEDB17D4E8278E410 /* Pods-GTToast_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GTToast_Example-resources.sh"; sourceTree = "<group>"; };
-		7882FB9AA7B92CBFAF8CDE9052434ED5 /* UIEdgeInsetsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtension.swift; sourceTree = "<group>"; };
-		7EECB447919CB4CA73753FBE127F1A6C /* Pods-GTToast_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		92CBA424B0515767DCD7C72727E448E9 /* GTToastAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToastAnimation.swift; sourceTree = "<group>"; };
+		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		744D6A30820986EBFC20BAE3281F3429 /* GTToast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTToast-umbrella.h"; sourceTree = "<group>"; };
+		9037AD1FF121652D2CD4F0B3583D41CD /* GTToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95171638C152D139CA6BF19E0C6E36A6 /* GTToast.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTToast.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E12FC99D8094910AFEEE176FBD9B5C4 /* Pods-GTToast_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GTToast_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		B8B10F56D764E5B09913DF6C0C5488A9 /* Pods-GTToast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B8D47EF87EE4B11C1031838DF3119276 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		BA1A48BA5AA5772DCC2C542FCDAC9FC6 /* Pods-GTToast_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GTToast_Example-dummy.m"; sourceTree = "<group>"; };
+		9EE7A51EABD079A4866DF19F8A0B5B6F /* Pods-GTToast_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A4DAF7D65949C425757B502D5C932995 /* GTToastAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToastAnimation.swift; sourceTree = "<group>"; };
+		A986C3B9ADD18721207C4BD4606F1C74 /* Pods_GTToast_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA19A8F856476DBE9DB7C205057D41AD /* GTToast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GTToast.modulemap; sourceTree = "<group>"; };
+		AA6F75B19EBF359FEBD6EE9449BC8DE0 /* GTToastView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GTToastView.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GTToast-Private.xcconfig"; sourceTree = "<group>"; };
-		E0D8849D72FDBE2A10336B91CB533F63 /* Pods-GTToast_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GTToast_Tests-dummy.m"; sourceTree = "<group>"; };
-		E6CFC7FBF5157868FC9BFC76E8A5903E /* GTToast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GTToast.modulemap; sourceTree = "<group>"; };
-		EDB8A65216A6C222B7F2F41ACBF68D57 /* Pods_GTToast_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTToast_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE8C1AAEAF0A331A5B92629376F82AC5 /* GTToast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTToast.xcconfig; sourceTree = "<group>"; };
+		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		CDE56F7DD7232F8B219310E95C19F4C9 /* Pods-GTToast_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GTToast_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTToast.xcconfig; sourceTree = "<group>"; };
+		E8039764D4399EBF7A69EDA93F9D693C /* Pods-GTToast_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GTToast_Tests-umbrella.h"; sourceTree = "<group>"; };
+		F14A0B0A8B5763180D367DB0A19E7EA5 /* Pods-GTToast_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GTToast_Example-dummy.m"; sourceTree = "<group>"; };
 		F696FCD87B984FD67BA384AB5DC7C0C9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA43123852E572E60E98F3B945F229A3 /* UIFontExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		F9C82E39646C7C27383B6453265427C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0316C601F136F827FCBBA83467A0313C /* Frameworks */ = {
+		3F95B390876069F7AC7C9D521C24B948 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71A945C0BB075A7C40BF9EFFA125455B /* Frameworks */ = {
+		4F33DBEE3A1B46ACBC596DDC9C1DE6EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C80C7DF3D31B5E2224D90BA2D53630 /* Foundation.framework in Frameworks */,
+				B692E36F51CD131438B65A4FC2A80006 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85C411CA5DEBAEA38FFD8B2AA7BD3948 /* Frameworks */ = {
+		A591BC4AEFE13A29BA54118E57FEF436 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5873F853C48C9F546874EC1129EF7727 /* Foundation.framework in Frameworks */,
+				473A17F5F08A774F55D3AC07D64EE805 /* Foundation.framework in Frameworks */,
+				4307049836612CE442A320C60F12870D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDB4E48EF77DF2A4D629C6292731E07E /* Frameworks */ = {
+		EF6BDA30F10908D35F0AA8735EEAB55E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5544123DFB62D5A6B73C9E6696334569 /* Foundation.framework in Frameworks */,
+				2BAA7C9E3402EB5408BE550D68E94936 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,20 +135,55 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3B2759138AE37EB77CB8348A705F493D /* Pod */ = {
+		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A26E22CFF35D8DDC81388389D300EEE9 /* Classes */,
+				6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */,
+				C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2F243848CF8E0606540635820749E183 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4E095AE8E6C561F23187A8A12C09C384 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+		30360B2CDC8B278557109D2E85339466 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8D47EF87EE4B11C1031838DF3119276 /* Foundation.framework */,
+				AA19A8F856476DBE9DB7C205057D41AD /* GTToast.modulemap */,
+				E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */,
+				54896AC20E11064923D3A7FADF9DD241 /* GTToast-dummy.m */,
+				2FDA7AFCCBE2CACD7CF71A417CFEC60A /* GTToast-prefix.pch */,
+				744D6A30820986EBFC20BAE3281F3429 /* GTToast-umbrella.h */,
+				F9C82E39646C7C27383B6453265427C6 /* Info.plist */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/GTToast";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18340F12838DEE43507667CC74401EB1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E095AE8E6C561F23187A8A12C09C384 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				259308913D6A83EA15971F72F33E7169 /* GTToast.swift */,
+				A4DAF7D65949C425757B502D5C932995 /* GTToastAnimation.swift */,
+				AA6F75B19EBF359FEBD6EE9449BC8DE0 /* GTToastView.swift */,
+				2D737F16BEF48F580BDC73959BBE99EB /* UIEdgeInsetsExtension.swift */,
+				2CE4605F220220D2AB8ABD62B91F1F72 /* UIFontExtensions.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -154,55 +191,39 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				A25FFA8F8DF5A62021D45A840A142504 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				B5237FA72B4D807512418FE99135AB69 /* Products */,
 				0F57EDA7FAC3FF7B445E95FA7FD41A91 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		93B99705338543A2CD6B10A613360E9C /* GTToast */ = {
-			isa = PBXGroup;
-			children = (
-				3B2759138AE37EB77CB8348A705F493D /* Pod */,
-				97C8037DAEA7D0AB62FF39FB4BD33117 /* Support Files */,
-			);
-			name = GTToast;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		97C8037DAEA7D0AB62FF39FB4BD33117 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E6CFC7FBF5157868FC9BFC76E8A5903E /* GTToast.modulemap */,
-				EE8C1AAEAF0A331A5B92629376F82AC5 /* GTToast.xcconfig */,
-				D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */,
-				03A898BB23A85DC9DD442F9967CA9943 /* GTToast-dummy.m */,
-				1109E670F6EE1A6844C32A9759212DB4 /* GTToast-prefix.pch */,
-				45C764ACBBE45234532FAB978C7296C5 /* GTToast-umbrella.h */,
-				1B3E61CA8F0A259A89A924EADF36111F /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "example/Pods/Target Support Files/GTToast";
 			sourceTree = "<group>";
 		};
 		A25FFA8F8DF5A62021D45A840A142504 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				93B99705338543A2CD6B10A613360E9C /* GTToast */,
+				B03D22804870E122F0786B4335C5E819 /* GTToast */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		A26E22CFF35D8DDC81388389D300EEE9 /* Classes */ = {
+		B03D22804870E122F0786B4335C5E819 /* GTToast */ = {
 			isa = PBXGroup;
 			children = (
-				3E61A35114E8D11BBC56B11F8BCCE977 /* GTToast.swift */,
-				92CBA424B0515767DCD7C72727E448E9 /* GTToastAnimation.swift */,
-				39EFEF768DEB67D7B797091ACE500CF0 /* GTToastView.swift */,
-				7882FB9AA7B92CBFAF8CDE9052434ED5 /* UIEdgeInsetsExtension.swift */,
-				FA43123852E572E60E98F3B945F229A3 /* UIFontExtensions.swift */,
+				2F243848CF8E0606540635820749E183 /* Pod */,
+				30360B2CDC8B278557109D2E85339466 /* Support Files */,
 			);
-			path = Classes;
+			name = GTToast;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B5237FA72B4D807512418FE99135AB69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95171638C152D139CA6BF19E0C6E36A6 /* GTToast.bundle */,
+				9037AD1FF121652D2CD4F0B3583D41CD /* GTToast.framework */,
+				1848F5BFA3302A7702D368EBB643EB88 /* Pods_GTToast_Example.framework */,
+				A986C3B9ADD18721207C4BD4606F1C74 /* Pods_GTToast_Tests.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC0B8821606421C98F12ED9C8B70B10A /* Pods-GTToast_Tests */ = {
@@ -212,34 +233,15 @@
 				005B69E3A5025D261EB5C863782C3AA0 /* Pods-GTToast_Tests.modulemap */,
 				15CE8F66AD3CE607CF7AA81F868F30FD /* Pods-GTToast_Tests-acknowledgements.markdown */,
 				38248D706BE27587558E5D7118BD4A41 /* Pods-GTToast_Tests-acknowledgements.plist */,
-				E0D8849D72FDBE2A10336B91CB533F63 /* Pods-GTToast_Tests-dummy.m */,
+				60A085B3A4FFFD42904E227613E485CF /* Pods-GTToast_Tests-dummy.m */,
 				9E12FC99D8094910AFEEE176FBD9B5C4 /* Pods-GTToast_Tests-frameworks.sh */,
 				0B282A7EE35FB4AA376E6958969CDA86 /* Pods-GTToast_Tests-resources.sh */,
-				47DEEDDA03798B61C63A8123985E7E7D /* Pods-GTToast_Tests-umbrella.h */,
-				0DCD220E7008D571CEEDCF9DFC167B64 /* Pods-GTToast_Tests.debug.xcconfig */,
-				077526B205A9227EE653C38BA34F5F06 /* Pods-GTToast_Tests.release.xcconfig */,
+				E8039764D4399EBF7A69EDA93F9D693C /* Pods-GTToast_Tests-umbrella.h */,
+				CDE56F7DD7232F8B219310E95C19F4C9 /* Pods-GTToast_Tests.debug.xcconfig */,
+				69A6F9D06567ABA4BC5C8B243A0DBFC7 /* Pods-GTToast_Tests.release.xcconfig */,
 			);
 			name = "Pods-GTToast_Tests";
 			path = "Target Support Files/Pods-GTToast_Tests";
-			sourceTree = "<group>";
-		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3748E1CBE6556EBA3492FECE66A216D0 /* GTToast.bundle */,
-				34268355E4B525BD2111CA0E792C17FD /* GTToast.framework */,
-				660A2B354653562B90F3588E46D86521 /* Pods_GTToast_Example.framework */,
-				EDB8A65216A6C222B7F2F41ACBF68D57 /* Pods_GTToast_Tests.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E6D26C01718A8D74351F37C77FECD1D6 /* Pods-GTToast_Example */ = {
@@ -249,12 +251,12 @@
 				392EFC564D4D63BB98B54A6B705F7303 /* Pods-GTToast_Example.modulemap */,
 				626A593D43682470A565976E550DD121 /* Pods-GTToast_Example-acknowledgements.markdown */,
 				0FE3262691E083BFA5FB94B3AF922E45 /* Pods-GTToast_Example-acknowledgements.plist */,
-				BA1A48BA5AA5772DCC2C542FCDAC9FC6 /* Pods-GTToast_Example-dummy.m */,
+				F14A0B0A8B5763180D367DB0A19E7EA5 /* Pods-GTToast_Example-dummy.m */,
 				26F6733055D2DA4C52DADB3CE1C6F012 /* Pods-GTToast_Example-frameworks.sh */,
 				6C788D3EFFF87B3AEDB17D4E8278E410 /* Pods-GTToast_Example-resources.sh */,
-				670ACC5B3A5E69E5B7C262CDF1E621FC /* Pods-GTToast_Example-umbrella.h */,
-				7EECB447919CB4CA73753FBE127F1A6C /* Pods-GTToast_Example.debug.xcconfig */,
-				B8B10F56D764E5B09913DF6C0C5488A9 /* Pods-GTToast_Example.release.xcconfig */,
+				497C45D44EAE388B2D888F2952CC848E /* Pods-GTToast_Example-umbrella.h */,
+				9EE7A51EABD079A4866DF19F8A0B5B6F /* Pods-GTToast_Example.debug.xcconfig */,
+				665E56FA7478C8BE1E5F850737537AD6 /* Pods-GTToast_Example.release.xcconfig */,
 			);
 			name = "Pods-GTToast_Example";
 			path = "Target Support Files/Pods-GTToast_Example";
@@ -263,40 +265,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		298A41604590A342B97D7F7269BD7E36 /* Headers */ = {
+		56FA90F86DA7FA317EF385E7CAC86D2F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBD8EC7204B1C0B0CA89EE350B865A48 /* Pods-GTToast_Example-umbrella.h in Headers */,
+				5221D53447B6539B6BC0AF7F4A0E9C53 /* Pods-GTToast_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB95149154E4EB25D2602FF6ACD3D84D /* Headers */ = {
+		805CC0BDC9A307FBDF26566C69579622 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FC84A5CEBE418093D48175E246A440 /* GTToast-umbrella.h in Headers */,
+				C336E06D6E5566F3D49DA1F81EB5455E /* Pods-GTToast_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3B73DDAADE3C2F7CE8F65F191950438 /* Headers */ = {
+		E899C5BEF8B6D48A7D3E10F402176D66 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770978E2C97A783845B4BD36ACF637C8 /* Pods-GTToast_Tests-umbrella.h in Headers */,
+				5BD66E0D94CF712D8FB8444C29C4766F /* GTToast-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		67D6ECDFA01D78ED79ACDC72F4656429 /* GTToast-GTToast */ = {
+		10D0E8F1C58B8D6159CD26D5B9E3DEBF /* GTToast-GTToast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF3A94357BA29FF6CBA56EFFFB03A726 /* Build configuration list for PBXNativeTarget "GTToast-GTToast" */;
+			buildConfigurationList = B23BC5A8E94200A416D63C1534954414 /* Build configuration list for PBXNativeTarget "GTToast-GTToast" */;
 			buildPhases = (
-				10E4ED5418ABD9D0B0BA3D387F62DB33 /* Sources */,
-				0316C601F136F827FCBBA83467A0313C /* Frameworks */,
-				A2F0F2C8AB44D1C412F33C0A8EB14047 /* Resources */,
+				B9C1D3AA8F2FF38E701782C3021E98D7 /* Sources */,
+				3F95B390876069F7AC7C9D521C24B948 /* Frameworks */,
+				6EE84BD320F6D2AFB0C7232E218BB242 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -304,62 +306,62 @@
 			);
 			name = "GTToast-GTToast";
 			productName = "GTToast-GTToast";
-			productReference = 3748E1CBE6556EBA3492FECE66A216D0 /* GTToast.bundle */;
+			productReference = 95171638C152D139CA6BF19E0C6E36A6 /* GTToast.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		E9FAADB68842152ABFF15B92263E6CF1 /* Pods-GTToast_Example */ = {
+		1731D80030027A7EDEED5738BD558F54 /* Pods-GTToast_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A67801A865F1DB1280D250757DE5C700 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Example" */;
+			buildConfigurationList = 388991D37A409D8F253DD11614CCDBB4 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Example" */;
 			buildPhases = (
-				DE2AE942E7D89DCB1644F15BEE561EE4 /* Sources */,
-				FDB4E48EF77DF2A4D629C6292731E07E /* Frameworks */,
-				298A41604590A342B97D7F7269BD7E36 /* Headers */,
+				A8F463B146FB97AB36EB5ECE0A9DC177 /* Sources */,
+				EF6BDA30F10908D35F0AA8735EEAB55E /* Frameworks */,
+				805CC0BDC9A307FBDF26566C69579622 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7324A514BC73225755B9CB8E2126F290 /* PBXTargetDependency */,
+				846A6203848E0C8C42804F7BD3A242FA /* PBXTargetDependency */,
 			);
 			name = "Pods-GTToast_Example";
 			productName = "Pods-GTToast_Example";
-			productReference = 660A2B354653562B90F3588E46D86521 /* Pods_GTToast_Example.framework */;
+			productReference = 1848F5BFA3302A7702D368EBB643EB88 /* Pods_GTToast_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FE546BC7E2AE1E8AC48ADEF992309AFB /* GTToast */ = {
+		463C9DB51C4F07A5F9D2BDAC3AD0ADB5 /* Pods-GTToast_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B7B80E5B76ADC4AD7817FDF47F37F10 /* Build configuration list for PBXNativeTarget "GTToast" */;
+			buildConfigurationList = A3997CC0AB4B4CBA4405FD08746D1E63 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Tests" */;
 			buildPhases = (
-				9121B574DAEB8F5BC3F33429B735AF15 /* Sources */,
-				85C411CA5DEBAEA38FFD8B2AA7BD3948 /* Frameworks */,
-				DC2772CCC2CE794B216189CEDE56B9B6 /* Resources */,
-				BB95149154E4EB25D2602FF6ACD3D84D /* Headers */,
+				EA4A78416B5DA40D26AB1D05A4308C63 /* Sources */,
+				4F33DBEE3A1B46ACBC596DDC9C1DE6EE /* Frameworks */,
+				56FA90F86DA7FA317EF385E7CAC86D2F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1E6A249A33D0C2B88AFDE8BFE2946171 /* PBXTargetDependency */,
-			);
-			name = GTToast;
-			productName = GTToast;
-			productReference = 34268355E4B525BD2111CA0E792C17FD /* GTToast.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		FEF65A848B0E8643C28084AB43019981 /* Pods-GTToast_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3D81F77E48C217A45C8B70272BBC605 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Tests" */;
-			buildPhases = (
-				D7F26B0F3B40E4B5BB63091E2E7BBB7F /* Sources */,
-				71A945C0BB075A7C40BF9EFFA125455B /* Frameworks */,
-				F3B73DDAADE3C2F7CE8F65F191950438 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BA1D9D7E20CCE737B0312BDA5D88BC04 /* PBXTargetDependency */,
+				C7A6EB97FDA36C902D6FFA8616BFDCE6 /* PBXTargetDependency */,
 			);
 			name = "Pods-GTToast_Tests";
 			productName = "Pods-GTToast_Tests";
-			productReference = EDB8A65216A6C222B7F2F41ACBF68D57 /* Pods_GTToast_Tests.framework */;
+			productReference = A986C3B9ADD18721207C4BD4606F1C74 /* Pods_GTToast_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DBE87894F57CDD05C728A074FB99EF16 /* GTToast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDEDF7DA77C626334C083FA9DCB8DB19 /* Build configuration list for PBXNativeTarget "GTToast" */;
+			buildPhases = (
+				CE6E450704B688978631F531C5E6BEE7 /* Sources */,
+				A591BC4AEFE13A29BA54118E57FEF436 /* Frameworks */,
+				26E04DF9E93E8A3179CE24D82F72A541 /* Resources */,
+				E899C5BEF8B6D48A7D3E10F402176D66 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A7BDC8EEAF9542ED158EFDED287CFDD /* PBXTargetDependency */,
+			);
+			name = GTToast;
+			productName = GTToast;
+			productReference = 9037AD1FF121652D2CD4F0B3583D41CD /* GTToast.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +371,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -379,100 +381,100 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = B5237FA72B4D807512418FE99135AB69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FE546BC7E2AE1E8AC48ADEF992309AFB /* GTToast */,
-				67D6ECDFA01D78ED79ACDC72F4656429 /* GTToast-GTToast */,
-				E9FAADB68842152ABFF15B92263E6CF1 /* Pods-GTToast_Example */,
-				FEF65A848B0E8643C28084AB43019981 /* Pods-GTToast_Tests */,
+				DBE87894F57CDD05C728A074FB99EF16 /* GTToast */,
+				10D0E8F1C58B8D6159CD26D5B9E3DEBF /* GTToast-GTToast */,
+				1731D80030027A7EDEED5738BD558F54 /* Pods-GTToast_Example */,
+				463C9DB51C4F07A5F9D2BDAC3AD0ADB5 /* Pods-GTToast_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A2F0F2C8AB44D1C412F33C0A8EB14047 /* Resources */ = {
+		26E04DF9E93E8A3179CE24D82F72A541 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F630B323FF0B966F79D3E0E2D25B747 /* GTToast.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC2772CCC2CE794B216189CEDE56B9B6 /* Resources */ = {
+		6EE84BD320F6D2AFB0C7232E218BB242 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ACFC801D80FE2093001A6EF9B0C77DE /* GTToast.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		10E4ED5418ABD9D0B0BA3D387F62DB33 /* Sources */ = {
+		A8F463B146FB97AB36EB5ECE0A9DC177 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C57D97CB0AB0944DD2EFD3951FD337 /* Pods-GTToast_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9C1D3AA8F2FF38E701782C3021E98D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9121B574DAEB8F5BC3F33429B735AF15 /* Sources */ = {
+		CE6E450704B688978631F531C5E6BEE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B217DFFFAEDA18E3A8F55C070FDF83E6 /* GTToast-dummy.m in Sources */,
-				7AA3CEA01AB42BCB16B685B65EB363B7 /* GTToast.swift in Sources */,
-				EF38C5000BB4AED603A38DD61AF08CA8 /* GTToastAnimation.swift in Sources */,
-				7EA6E3928DCB3C77D5BFC4D48AED1E60 /* GTToastView.swift in Sources */,
-				39CF0D208882FAF47D11373C3449A982 /* UIEdgeInsetsExtension.swift in Sources */,
-				AC9BD31822B26C411310803A6F80B0F7 /* UIFontExtensions.swift in Sources */,
+				61DA5009B4F2FCD0A113D031C27E3924 /* GTToast-dummy.m in Sources */,
+				1793545117116DB334A1D69F1CAB0797 /* GTToast.swift in Sources */,
+				66806BDD37D2DDAB0F6916742F3D9228 /* GTToastAnimation.swift in Sources */,
+				7199D8A8729F732469DA7F3F2B11B36A /* GTToastView.swift in Sources */,
+				D2BE9D01DB833BE0E0575BE3D6BD56A5 /* UIEdgeInsetsExtension.swift in Sources */,
+				280F48AC22E0D16236AECFC88A437BAB /* UIFontExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7F26B0F3B40E4B5BB63091E2E7BBB7F /* Sources */ = {
+		EA4A78416B5DA40D26AB1D05A4308C63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				790F73F0A7A05F215371D4FE86D99A37 /* Pods-GTToast_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE2AE942E7D89DCB1644F15BEE561EE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2FF762A260BD93A9EC3053EBB67F44D /* Pods-GTToast_Example-dummy.m in Sources */,
+				670B1E2B9C6E5C28EDED76560782D021 /* Pods-GTToast_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1E6A249A33D0C2B88AFDE8BFE2946171 /* PBXTargetDependency */ = {
+		1A7BDC8EEAF9542ED158EFDED287CFDD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "GTToast-GTToast";
-			target = 67D6ECDFA01D78ED79ACDC72F4656429 /* GTToast-GTToast */;
-			targetProxy = 74F17B614C76A95914D5395C7A4E6440 /* PBXContainerItemProxy */;
+			target = 10D0E8F1C58B8D6159CD26D5B9E3DEBF /* GTToast-GTToast */;
+			targetProxy = C1CEB0C3C7D636F27DB229B813029E16 /* PBXContainerItemProxy */;
 		};
-		7324A514BC73225755B9CB8E2126F290 /* PBXTargetDependency */ = {
+		846A6203848E0C8C42804F7BD3A242FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GTToast;
-			target = FE546BC7E2AE1E8AC48ADEF992309AFB /* GTToast */;
-			targetProxy = 9E5C56EAADF230F619EC84C34A1300D2 /* PBXContainerItemProxy */;
+			target = DBE87894F57CDD05C728A074FB99EF16 /* GTToast */;
+			targetProxy = 54D9959AE4CBA17891EDE9B0D053BB6E /* PBXContainerItemProxy */;
 		};
-		BA1D9D7E20CCE737B0312BDA5D88BC04 /* PBXTargetDependency */ = {
+		C7A6EB97FDA36C902D6FFA8616BFDCE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GTToast;
-			target = FE546BC7E2AE1E8AC48ADEF992309AFB /* GTToast */;
-			targetProxy = 82904841A1F94DFAC376ACEFC1C93175 /* PBXContainerItemProxy */;
+			target = DBE87894F57CDD05C728A074FB99EF16 /* GTToast */;
+			targetProxy = B6E051E92D8EBBA28FD85646EF087683 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0238AA0BCC5CC9177F1380B9A8934936 /* Debug */ = {
+		040593347A3E05D8EB7E78BE7881B06B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DCD220E7008D571CEEDCF9DFC167B64 /* Pods-GTToast_Tests.debug.xcconfig */;
+			baseConfigurationReference = 69A6F9D06567ABA4BC5C8B243A0DBFC7 /* Pods-GTToast_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -485,24 +487,25 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GTToast_Tests/Pods-GTToast_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_GTToast_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		042E4734A62F07B1D4AA7F5DB272AA38 /* Release */ = {
+		221E446D659E1818CFF4CA845AACCAFE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */;
+			baseConfigurationReference = E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = GTToast;
@@ -512,9 +515,9 @@
 			};
 			name = Release;
 		};
-		403BCE79981733CED0B4C57D12FC4023 /* Debug */ = {
+		4C8135E83739DF9B5FC80C1E7DE1DD1C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EECB447919CB4CA73753FBE127F1A6C /* Pods-GTToast_Example.debug.xcconfig */;
+			baseConfigurationReference = 9EE7A51EABD079A4866DF19F8A0B5B6F /* Pods-GTToast_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -527,11 +530,13 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GTToast_Example/Pods-GTToast_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_GTToast_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -539,18 +544,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5AF06BC39C1164A088AC9CFBB38BA6E9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = GTToast;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -572,6 +565,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -627,15 +621,15 @@
 			};
 			name = Release;
 		};
-		98821BBFD0D2F80455E2A705878EA78E /* Debug */ = {
+		777A5257229E111A554DE4F858CF669F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */;
+			baseConfigurationReference = E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GTToast/GTToast-prefix.pch";
@@ -645,6 +639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GTToast/GTToast.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GTToast;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -655,36 +650,9 @@
 			};
 			name = Debug;
 		};
-		A24BD6E472F5FE2A0DCC30E98F054567 /* Release */ = {
+		813E130B43B8A1B4C314F7F5979C13BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D98C7EF571C81147B78211A97F8D7240 /* GTToast-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.0;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GTToast/GTToast-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GTToast/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GTToast/GTToast.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = GTToast;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DF791696C3226BA45E5CB327A97B07F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8B10F56D764E5B09913DF6C0C5488A9 /* Pods-GTToast_Example.release.xcconfig */;
+			baseConfigurationReference = 665E56FA7478C8BE1E5F850737537AD6 /* Pods-GTToast_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -697,11 +665,13 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GTToast_Example/Pods-GTToast_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_GTToast_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -711,9 +681,37 @@
 			};
 			name = Release;
 		};
-		FCD4C7FA447754BAE1954C6C449817B9 /* Release */ = {
+		8561735DFFF3345631007F38D896F78B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 077526B205A9227EE653C38BA34F5F06 /* Pods-GTToast_Tests.release.xcconfig */;
+			baseConfigurationReference = E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GTToast/GTToast-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTToast/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GTToast/GTToast.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = GTToast;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		962F7F83E7B9001CFBA37917AA398851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDE56F7DD7232F8B219310E95C19F4C9 /* Pods-GTToast_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -726,19 +724,34 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GTToast_Tests/Pods-GTToast_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_GTToast_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
+		};
+		FF0060956E45D439652CABC275CF03C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1616907596230144A814833E7587BF3 /* GTToast.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = GTToast;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -752,38 +765,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B7B80E5B76ADC4AD7817FDF47F37F10 /* Build configuration list for PBXNativeTarget "GTToast" */ = {
+		388991D37A409D8F253DD11614CCDBB4 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98821BBFD0D2F80455E2A705878EA78E /* Debug */,
-				A24BD6E472F5FE2A0DCC30E98F054567 /* Release */,
+				4C8135E83739DF9B5FC80C1E7DE1DD1C /* Debug */,
+				813E130B43B8A1B4C314F7F5979C13BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A67801A865F1DB1280D250757DE5C700 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Example" */ = {
+		A3997CC0AB4B4CBA4405FD08746D1E63 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				403BCE79981733CED0B4C57D12FC4023 /* Debug */,
-				DF791696C3226BA45E5CB327A97B07F4 /* Release */,
+				962F7F83E7B9001CFBA37917AA398851 /* Debug */,
+				040593347A3E05D8EB7E78BE7881B06B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3D81F77E48C217A45C8B70272BBC605 /* Build configuration list for PBXNativeTarget "Pods-GTToast_Tests" */ = {
+		B23BC5A8E94200A416D63C1534954414 /* Build configuration list for PBXNativeTarget "GTToast-GTToast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0238AA0BCC5CC9177F1380B9A8934936 /* Debug */,
-				FCD4C7FA447754BAE1954C6C449817B9 /* Release */,
+				FF0060956E45D439652CABC275CF03C7 /* Debug */,
+				221E446D659E1818CFF4CA845AACCAFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF3A94357BA29FF6CBA56EFFFB03A726 /* Build configuration list for PBXNativeTarget "GTToast-GTToast" */ = {
+		CDEDF7DA77C626334C083FA9DCB8DB19 /* Build configuration list for PBXNativeTarget "GTToast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AF06BC39C1164A088AC9CFBB38BA6E9 /* Debug */,
-				042E4734A62F07B1D4AA7F5DB272AA38 /* Release */,
+				777A5257229E111A554DE4F858CF669F /* Debug */,
+				8561735DFFF3345631007F38D896F78B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

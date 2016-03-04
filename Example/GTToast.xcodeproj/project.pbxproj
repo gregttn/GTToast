@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F33C496BD1E9E936ADDE046 /* Pods_GTToast_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23B255D93C7A481D9F4A97B /* Pods_GTToast_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F33C496BD1E9E936ADDE046 /* Pods_GTToast_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23B255D93C7A481D9F4A97B /* Pods_GTToast_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		636897491BC0173B0091F1F3 /* GTToastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636897441BC0167E0091F1F3 /* GTToastViewTests.swift */; settings = {ASSET_TAGS = (); }; };
-		6368974A1BC0173E0091F1F3 /* GTToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* GTToastTests.swift */; settings = {ASSET_TAGS = (); }; };
-		63BD3B481BC5063F00D697D8 /* GTToastAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD3B471BC5063F00D697D8 /* GTToastAnimationTests.swift */; settings = {ASSET_TAGS = (); }; };
-		9FC490AC5C62ABB461B3AA97 /* Pods_GTToast_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D0546CA685DCA83B096CBB /* Pods_GTToast_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		636897491BC0173B0091F1F3 /* GTToastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636897441BC0167E0091F1F3 /* GTToastViewTests.swift */; };
+		6368974A1BC0173E0091F1F3 /* GTToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* GTToastTests.swift */; };
+		63BD3B481BC5063F00D697D8 /* GTToastAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD3B471BC5063F00D697D8 /* GTToastAnimationTests.swift */; };
+		9FC490AC5C62ABB461B3AA97 /* Pods_GTToast_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D0546CA685DCA83B096CBB /* Pods_GTToast_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
