@@ -312,6 +312,34 @@ class GTToastViewTests: XCTestCase {
         XCTAssertFalse(window().subviews.contains(toast))
     }
     
+    func testDismiss_shouldRemoveView() {
+        let config = GTToastConfig(displayInterval: 10)
+        
+        updateToast(config: config)
+        toast.show()
+        
+        NSRunLoop.currentRunLoop().runUntilDate(NSDate().dateByAddingTimeInterval(1.5))
+        
+        XCTAssertTrue(window().subviews.contains(toast))
+        
+        toast.dismiss()
+        
+        NSRunLoop.currentRunLoop().runUntilDate(NSDate().dateByAddingTimeInterval(1))
+        
+        XCTAssertFalse(window().subviews.contains(toast))
+    }
+    
+    func testDismiss_shouldNotAttemptToDismissIfNotShown() {
+        let config = GTToastConfig(displayInterval: 1)
+        
+        updateToast(config: config)
+        toast.dismiss()
+        
+        NSRunLoop.currentRunLoop().runUntilDate(NSDate().dateByAddingTimeInterval(1.5))
+        
+        XCTAssertFalse(window().subviews.contains(toast))
+    }
+    
     func testSizeThatFits_shouldReturnAppropriateSize() {
         let labelSize = calculateLabelSize()
         let expectedSize = CGSizeMake(ceil(labelSize.width) + 2 * contentInset,

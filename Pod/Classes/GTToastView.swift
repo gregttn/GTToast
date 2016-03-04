@@ -48,6 +48,10 @@ public class GTToastView: UIView, GTAnimatable {
         }
     }
     
+    public var displayed: Bool {
+        return superview != nil
+    }
+    
     init() {
         fatalError("init() has not been implemented")
     }
@@ -183,13 +187,24 @@ public class GTToastView: UIView, GTAnimatable {
     }
     
     public func show() {
-        guard let window = UIApplication.sharedApplication().windows.first where !window.subviews.contains(self) else {
+        guard let window = UIApplication.sharedApplication().windows.first else {
             return
         }
         
-        window.addSubview(self)
+        if !displayed {
+            window.addSubview(self)
+            
+            animateAll(self, interval: config.displayInterval, animations: config.animation.animations(self))
+        }
+    }
+    
+    public func dismiss() {
+        self.config.animation.animations(self).show()
+        layer.removeAllAnimations()
         
-        animateAll(self, interval: config.displayInterval, animations: config.animation.animations(self))
+        animate(0, animations: config.animation.animations(self).hide) { _ in
+            self.removeFromSuperview()
+        }
     }
 }
 
@@ -199,12 +214,13 @@ internal extension GTAnimatable {
     func animateAll(view: UIView, interval: NSTimeInterval, animations: GTAnimations) {
         animations.before()
         
-        animate(0,
-            animations: animations.show,
-            completion:{ _ in
-                self.animate(interval,
-                    animations: animations.hide ,
-                    completion: { _ in view.removeFromSuperview() })
+        animate(0, animations: animations.show, completion: { _ in
+            
+                self.animate(interval, animations: animations.hide) { finished in
+                    if finished {
+                        view.removeFromSuperview()
+                    }
+                }
             }
         )
     }
