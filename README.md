@@ -162,7 +162,7 @@ pod 'GTToast'
 
 ## Running the project
 
-After cloning the project you will need to run 'pod update' in the Example directory.
+After cloning the project you will need to run 'pod install' in the Example directory.
 To view in Xcode open the GTToast.xcworkspace which is located in the Example directory.
 
 ## Author
