@@ -211,7 +211,7 @@ public class GTToastView: UIView, GTAnimatable {
 internal protocol GTAnimatable {}
 
 internal extension GTAnimatable {
-    func animateAll(view: UIView, interval: NSTimeInterval, animations: GTAnimations) {
+    func animateAll(view: UIView, interval: NSTimeInterval, animations: GTAnimation) {
         animations.before(view)
         
         animate(0, animations: { animations.show(view) }, completion: { _ in

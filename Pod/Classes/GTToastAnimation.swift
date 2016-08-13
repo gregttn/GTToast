@@ -14,35 +14,35 @@ public enum GTToastAnimation: Int {
     case LeftInRightOut
     case RightInLeftOut
     
-    public func animations() -> GTAnimations {
+    public func animations() -> GTAnimation {
         switch self{
         case .Alpha:
-            return GTAlphaAnimations()
+            return GTAlphaAnimation()
         case .BottomSlideIn:
-            return GTBottomSlideInAnimations()
+            return GTBottomSlideInAnimation()
         case .LeftSlideIn :
-            return GTLeftSlideInAnimations()
+            return GTLeftSlideInAnimation()
         case .RightSlideIn :
-            return GTRightSlideInAnimations()
+            return GTRightSlideInAnimation()
         case .Scale :
-            return GTScaleAnimations()
+            return GTScaleAnimation()
         case .LeftInRightOut:
-            return GTLeftInRightOutAnimations()
+            return GTLeftInRightOutAnimation()
         case .RightInLeftOut:
             return GTRightInLeftOutAnimation()
         }
         
-        return GTNoAnimations()
+        return GTNoAnimation()
     }
 }
 
-public protocol GTAnimations {
+public protocol GTAnimation {
     func before(view: UIView) -> Void
     func show(view: UIView) -> Void
     func hide(view: UIView) -> Void
 }
 
-public class GTNoAnimations: GTAnimations{
+public class GTNoAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
     }
     
@@ -53,7 +53,7 @@ public class GTNoAnimations: GTAnimations{
     }
 }
 
-public class GTAlphaAnimations: GTAnimations{
+public class GTAlphaAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         view.alpha = 0
     }
@@ -67,7 +67,7 @@ public class GTAlphaAnimations: GTAnimations{
     }
 }
 
-public class GTBottomSlideInAnimations: GTAnimations {
+public class GTBottomSlideInAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -83,7 +83,7 @@ public class GTBottomSlideInAnimations: GTAnimations {
     }
 }
 
-public class GTLeftSlideInAnimations: GTAnimations {
+public class GTLeftSlideInAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -99,7 +99,7 @@ public class GTLeftSlideInAnimations: GTAnimations {
     }
 }
 
-public class GTRightSlideInAnimations: GTAnimations {
+public class GTRightSlideInAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -115,7 +115,7 @@ public class GTRightSlideInAnimations: GTAnimations {
     }
 }
 
-public class GTScaleAnimations: GTAnimations {
+public class GTScaleAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)
     }
@@ -129,7 +129,7 @@ public class GTScaleAnimations: GTAnimations {
     }
 }
 
-public class GTLeftInRightOutAnimations: GTAnimations {
+public class GTLeftInRightOutAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
     }
@@ -144,7 +144,7 @@ public class GTLeftInRightOutAnimations: GTAnimations {
     }
 }
 
-public class GTRightInLeftOutAnimation: GTAnimations {
+public class GTRightInLeftOutAnimation: GTAnimation {
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)
