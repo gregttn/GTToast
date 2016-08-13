@@ -291,7 +291,7 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testShow_shouldAddViewToWindowWhenAlphaAnimationSelected() {
-        let config = GTToastConfig(animation: GTToastAnimation.Alpha)
+        let config = GTToastConfig(animation: GTAlphaAnimation())
         
         updateToast(config: config)
         
@@ -301,7 +301,7 @@ class GTToastViewTests: XCTestCase {
     }
     
     func testShow_shouldRemoveViewFromWindowAfterDelayWhenAlphaAnimationSelected() {
-        let config = GTToastConfig(displayInterval: 0.1, animation: GTToastAnimation.Alpha)
+        let config = GTToastConfig(displayInterval: 0.1, animation: GTAlphaAnimation())
         
         updateToast(config: config)
         
