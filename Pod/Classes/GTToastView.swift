@@ -194,15 +194,15 @@ public class GTToastView: UIView, GTAnimatable {
         if !displayed {
             window.addSubview(self)
             
-            animateAll(self, interval: config.displayInterval, animations: config.animation.animations(self))
+            animateAll(self, interval: config.displayInterval, animations: config.animation.animations())
         }
     }
     
     public func dismiss() {
-        self.config.animation.animations(self).show()
+        self.config.animation.animations().show(self)
         layer.removeAllAnimations()
         
-        animate(0, animations: config.animation.animations(self).hide) { _ in
+        animate(0, animations: { self.config.animation.animations().hide(self) }) { _ in
             self.removeFromSuperview()
         }
     }
@@ -212,11 +212,11 @@ internal protocol GTAnimatable {}
 
 internal extension GTAnimatable {
     func animateAll(view: UIView, interval: NSTimeInterval, animations: GTAnimations) {
-        animations.before()
+        animations.before(view)
         
-        animate(0, animations: animations.show, completion: { _ in
+        animate(0, animations: { animations.show(view) }, completion: { _ in
             
-                self.animate(interval, animations: animations.hide) { finished in
+            self.animate(interval, animations: { animations.hide(view) }) { finished in
                     if finished {
                         view.removeFromSuperview()
                     }
