@@ -194,15 +194,15 @@ public class GTToastView: UIView, GTAnimatable {
         if !displayed {
             window.addSubview(self)
             
-            animateAll(self, interval: config.displayInterval, animations: config.animation.animations())
+            animateAll(self, interval: config.displayInterval, animations: config.animation)
         }
     }
     
     public func dismiss() {
-        self.config.animation.animations().show(self)
+        self.config.animation.show(self)
         layer.removeAllAnimations()
         
-        animate(0, animations: { self.config.animation.animations().hide(self) }) { _ in
+        animate(0, animations: { self.config.animation.hide(self) }) { _ in
             self.removeFromSuperview()
         }
     }

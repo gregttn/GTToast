@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let config = GTToastConfig(
             displayInterval: 4,
-            animation: GTToastAnimation(rawValue: selectedAnimation)!,
+            animation: GTToastAnimation(rawValue: selectedAnimation)!.animations(),
             textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!,
             imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!,
             imageMargins: selectedMargins()

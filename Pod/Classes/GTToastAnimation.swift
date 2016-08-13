@@ -31,8 +31,6 @@ public enum GTToastAnimation: Int {
         case .RightInLeftOut:
             return GTRightInLeftOutAnimation()
         }
-        
-        return GTNoAnimation()
     }
 }
 
@@ -43,6 +41,8 @@ public protocol GTAnimation {
 }
 
 public class GTNoAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
     }
     
@@ -54,6 +54,8 @@ public class GTNoAnimation: GTAnimation {
 }
 
 public class GTAlphaAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         view.alpha = 0
     }
@@ -68,6 +70,8 @@ public class GTAlphaAnimation: GTAnimation {
 }
 
 public class GTBottomSlideInAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -84,9 +88,9 @@ public class GTBottomSlideInAnimation: GTAnimation {
 }
 
 public class GTLeftSlideInAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
-        let screenSize = UIScreen.mainScreen().bounds
-        
         view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
     }
     
@@ -100,6 +104,8 @@ public class GTLeftSlideInAnimation: GTAnimation {
 }
 
 public class GTRightSlideInAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         
@@ -116,6 +122,8 @@ public class GTRightSlideInAnimation: GTAnimation {
 }
 
 public class GTScaleAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)
     }
@@ -130,6 +138,8 @@ public class GTScaleAnimation: GTAnimation {
 }
 
 public class GTLeftInRightOutAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
     }
@@ -145,6 +155,8 @@ public class GTLeftInRightOutAnimation: GTAnimation {
 }
 
 public class GTRightInLeftOutAnimation: GTAnimation {
+    public init() {}
+    
     public func before(view: UIView) -> Void {
         let screenSize = UIScreen.mainScreen().bounds
         view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)
