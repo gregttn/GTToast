@@ -5,6 +5,8 @@
 //  Created by Grzegorz Tatarzyn on 05/10/2015.
 //
 //
+
+@available(*, deprecated, message="Use subclasses of GTAnimation directly instead.")
 public enum GTToastAnimation: Int {
     case Alpha
     case Scale
