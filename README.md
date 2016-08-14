@@ -161,6 +161,7 @@ Have a look at the current implementation in `GTAnimation.swift`
 ## Requirements
 
 This control is written in Swift 2. You will need at least Xcode 7.
+You will need deployment target set to at least 8.0
 Also this project uses CocoaPods.
 
 ## Installation
