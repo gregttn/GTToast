@@ -88,9 +88,9 @@ Alignment of the text. Default: *NSTextAlignment.Center*
 
 Background color of the toast. Default: *UIColor.blackColor().colorWithAlphaComponent(0.8)*
 
-* animation: GTToastAnimation
+* animation: GTAnimation
 
-The animation type to be used when displaying and hidding the toast. Default: *GTToastAnimation.BottomSlideIn* (see below for full list)
+The animation type to be used when displaying and hidding the toast. Default: *GTBottomSlideInAnimation* (see below for full list)
 
 * displayInterval: NSTimeInterval
 
@@ -123,7 +123,7 @@ GTToastConfig(
     textColor: UIColor.redColor(),
     textAlignment: NSTextAlignment.Right,
     backgroundColor: UIColor.blueColor().colorWithAlphaComponent(0.8),
-    animation: GTToastAnimation.Scale,
+    animation: GTScaleAnimation(),
     displayInterval: 2,
     bottomMargin: 15.0,
     imageMargins: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
@@ -134,17 +134,29 @@ GTToastConfig(
 
 Only the properties that you want to change can be provided. No need for all of them.
 
-## GTToastAnimation options
+## GTAnimation
 
-GTToastAnimation hold predefined list of animations that can be used for displaying the toast
+GTAnimation is a protocol that describes state of the view during different phases of the animation. Following are the provided implementations of it:
 
-* Alpha
-* Scale
-* BottomSlideIn
-* LeftSlideIn
-* RightSlideIn
-* LeftInRightOut
-* RightInLeftOut
+* GTAlphaAnimation
+* GTBottomSlideInAnimation
+* GTLeftSlideInAnimation
+* GTRightSlideInAnimation
+* GTScaleAnimation
+* GTLeftInRightOutAnimation
+* GTRightInLeftOutAnimation
+* GTNoAnimation
+
+## Providing your own animation
+
+There are three methods that you must implements when providing you implementation for `GTAnimation` protocol
+
+* `func before(view: UIView) -> Void` - State of the view before the animation begins.
+* `func show(view: UIView) -> Void` - State of the view when shown on the screen.
+* `func hide(view: UIView) -> Void` - State of the view when user dismissed it.
+
+Have a look at the current implementation in `GTAnimation.swift`
+
 
 ## Requirements
 
