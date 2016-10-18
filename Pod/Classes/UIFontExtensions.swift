@@ -7,10 +7,10 @@
 //
 
 extension UIFont {
-    func sizeFor(content: String, constrain: CGSize) -> CGSize {
-        return NSString(string: content).boundingRectWithSize(
-            constrain,
-            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+    func sizeFor(_ content: String, constrain: CGSize) -> CGSize {
+        return NSString(string: content).boundingRect(
+            with: constrain,
+            options: NSStringDrawingOptions.usesLineFragmentOrigin,
             attributes: [NSFontAttributeName : self],
             context: nil)
         .size

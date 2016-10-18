@@ -6,46 +6,46 @@
 //
 //
 
-public class GTToast {
-    private let config: GTToastConfig
+open class GTToast {
+    fileprivate let config: GTToastConfig
     
     public init(config: GTToastConfig) {
         self.config = config
     }
     
-    public func create(message: String, image: UIImage? = .None) -> GTToastView {
+    open func create(_ message: String, image: UIImage? = .none) -> GTToastView {
         return GTToast.create(message, config: config, image: image)
     }
     
-    public static func create(message: String, config: GTToastConfig = GTToastConfig(), image: UIImage? = .None) -> GTToastView {
+    open static func create(_ message: String, config: GTToastConfig = GTToastConfig(), image: UIImage? = .none) -> GTToastView {
         let toast = GTToastView(message: message, config: config, image: image)
         toast.frame = createFrame(toast, config: config)
         
         return toast
     }
     
-    private static func createFrame(view: GTToastView, config: GTToastConfig) -> CGRect {
-        let screenSize = UIScreen.mainScreen().bounds
+    fileprivate static func createFrame(_ view: GTToastView, config: GTToastConfig) -> CGRect {
+        let screenSize = UIScreen.main.bounds
         
-        let size = view.sizeThatFits(CGSizeZero)
+        let size = view.sizeThatFits(CGSize.zero)
         
         let y = screenSize.height - config.bottomMargin - size.height
         let x = ceil((screenSize.width - size.width) / 2.0)
         
-        return CGRectMake(x, y, size.width, size.height)
+        return CGRect(x: x, y: y, width: size.width, height: size.height)
     }
 }
 
 public struct GTToastConfig {
     static let defaultInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
-    static let defaultFont = UIFont.systemFontOfSize(12.0)
+    static let defaultFont = UIFont.systemFont(ofSize: 12.0)
     
     let contentInsets: UIEdgeInsets
     let cornerRadius: CGFloat
     let font: UIFont
     let textColor: UIColor
     let backgroundColor: UIColor
-    let displayInterval: NSTimeInterval
+    let displayInterval: TimeInterval
     let animation: GTAnimation
     let bottomMargin: CGFloat
     let textAlignment: NSTextAlignment
@@ -57,15 +57,15 @@ public struct GTToastConfig {
         contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
         cornerRadius: CGFloat = 3.0,
         font: UIFont = GTToastConfig.defaultFont,
-        textColor: UIColor = UIColor.whiteColor(),
-        textAlignment: NSTextAlignment = .Center,
-        backgroundColor: UIColor = UIColor.blackColor().colorWithAlphaComponent(0.8),
+        textColor: UIColor = UIColor.white,
+        textAlignment: NSTextAlignment = .center,
+        backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8),
         animation: GTAnimation = GTBottomSlideInAnimation(),
-        displayInterval: NSTimeInterval = 4,
+        displayInterval: TimeInterval = 4,
         bottomMargin: CGFloat = 5.0,
         imageMargins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-        imageAlignment: GTToastAlignment = .Left,
-        maxImageSize: CGSize = CGSizeMake(100, 200))
+        imageAlignment: GTToastAlignment = .left,
+        maxImageSize: CGSize = CGSize(width: 100, height: 200))
     {
         self.contentInsets = contentInsets
         self.cornerRadius = cornerRadius
@@ -83,20 +83,20 @@ public struct GTToastConfig {
 }
 
 public enum GTToastAlignment : Int {
-    case Left
-    case Right
-    case Top
-    case Bottom
+    case left
+    case right
+    case top
+    case bottom
 
     public func defaultInsets() -> UIEdgeInsets {
         switch self {
-        case .Left:
+        case .left:
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        case .Right:
+        case .right:
             return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
-        case .Top:
+        case .top:
             return UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
-        case .Bottom:
+        case .bottom:
             return UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         }
     }

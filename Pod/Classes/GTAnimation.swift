@@ -9,138 +9,138 @@
 import Foundation
 
 public protocol GTAnimation {
-    func before(view: UIView) -> Void
-    func show(view: UIView) -> Void
-    func hide(view: UIView) -> Void
+    func before(_ view: UIView) -> Void
+    func show(_ view: UIView) -> Void
+    func hide(_ view: UIView) -> Void
 }
 
-public class GTNoAnimation: GTAnimation {
+open class GTNoAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
+    open func before(_ view: UIView) -> Void {
     }
     
-    public func show(view: UIView) -> Void {
+    open func show(_ view: UIView) -> Void {
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
     }
 }
 
-public class GTAlphaAnimation: GTAnimation {
+open class GTAlphaAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
+    open func before(_ view: UIView) -> Void {
         view.alpha = 0
     }
     
-    public func show(view: UIView) -> Void {
+    open func show(_ view: UIView) -> Void {
         view.alpha = 1
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
         before(view)
     }
 }
 
-public class GTBottomSlideInAnimation: GTAnimation {
+open class GTBottomSlideInAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        let screenSize = UIScreen.mainScreen().bounds
+    open func before(_ view: UIView) -> Void {
+        let screenSize = UIScreen.main.bounds
         
-        view.transform = CGAffineTransformMakeTranslation(0, screenSize.height - view.frame.origin.y)
+        view.transform = CGAffineTransform(translationX: 0, y: screenSize.height - view.frame.origin.y)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
         before(view)
     }
 }
 
-public class GTLeftSlideInAnimation: GTAnimation {
+open class GTLeftSlideInAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
+    open func before(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform(translationX: -view.frame.origin.x-view.frame.width, y: 0)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
         before(view)
     }
 }
 
-public class GTRightSlideInAnimation: GTAnimation {
+open class GTRightSlideInAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        let screenSize = UIScreen.mainScreen().bounds
+    open func before(_ view: UIView) -> Void {
+        let screenSize = UIScreen.main.bounds
         
-        view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)
+        view.transform = CGAffineTransform(translationX: screenSize.width - view.frame.origin.x, y: 0)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
         before(view)
     }
 }
 
-public class GTScaleAnimation: GTAnimation {
+open class GTScaleAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        view.transform = CGAffineTransformMakeScale(0.00000001, 0.00000001)
+    open func before(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform(scaleX: 0.00000001, y: 0.00000001)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
+    open func hide(_ view: UIView) -> Void {
         before(view)
     }
 }
 
-public class GTLeftInRightOutAnimation: GTAnimation {
+open class GTLeftInRightOutAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
+    open func before(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform(translationX: -view.frame.origin.x-view.frame.width, y: 0)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
-        let screenSize = UIScreen.mainScreen().bounds
-        view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)
+    open func hide(_ view: UIView) -> Void {
+        let screenSize = UIScreen.main.bounds
+        view.transform = CGAffineTransform(translationX: screenSize.width - view.frame.origin.x, y: 0)
     }
 }
 
-public class GTRightInLeftOutAnimation: GTAnimation {
+open class GTRightInLeftOutAnimation: GTAnimation {
     public init() {}
     
-    public func before(view: UIView) -> Void {
-        let screenSize = UIScreen.mainScreen().bounds
-        view.transform = CGAffineTransformMakeTranslation(screenSize.width - view.frame.origin.x, 0)
+    open func before(_ view: UIView) -> Void {
+        let screenSize = UIScreen.main.bounds
+        view.transform = CGAffineTransform(translationX: screenSize.width - view.frame.origin.x, y: 0)
     }
     
-    public func show(view: UIView) -> Void {
-        view.transform = CGAffineTransformIdentity
+    open func show(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform.identity
     }
     
-    public func hide(view: UIView) -> Void {
-        view.transform = CGAffineTransformMakeTranslation(-view.frame.origin.x-view.frame.width, 0)
+    open func hide(_ view: UIView) -> Void {
+        view.transform = CGAffineTransform(translationX: -view.frame.origin.x-view.frame.width, y: 0)
     }
 }
