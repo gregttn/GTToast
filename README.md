@@ -117,18 +117,18 @@ You can specify all of the above by creating GTToastConfig
 
 ```swift
 GTToastConfig(
-    contentInsets: UIEdgeInsets(top:10, left: 9, bottom: 8, right: 7),
-    cornerRadius: 8.0,
-    font: UIFont.systemFontOfSize(100),
-    textColor: UIColor.redColor(),
-    textAlignment: NSTextAlignment.Right,
-    backgroundColor: UIColor.blueColor().colorWithAlphaComponent(0.8),
-    animation: GTScaleAnimation(),
-    displayInterval: 2,
-    bottomMargin: 15.0,
-    imageMargins: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
-    imageAlignment: GTToastAlignment.Top,
-    maxImageSize: CGSizeMake(100,100)
+  contentInsets: UIEdgeInsets(top:10, left: 9, bottom: 8, right: 7),
+  cornerRadius: 8.0,
+  font: UIFont.systemFont(ofSize: 100),
+  textColor: UIColor.red,
+  textAlignment: NSTextAlignment.right,
+  backgroundColor: UIColor.blue.withAlphaComponent(0.8),
+  animation: GTScaleAnimation(),
+  displayInterval: 2,
+  bottomMargin: 15.0,
+  imageMargins: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
+  imageAlignment: GTToastAlignment.top,
+  maxImageSize: CGSize(width: 100, height: 100)
 )
 ```
 
@@ -160,7 +160,7 @@ Have a look at the current implementation in `GTAnimation.swift`
 
 ## Requirements
 
-This control is written in Swift 2. You will need at least Xcode 7.
+This control is written in Swift 3. You will need at least Xcode 8.
 You will need deployment target set to at least 8.0
 Also this project uses CocoaPods.
 
