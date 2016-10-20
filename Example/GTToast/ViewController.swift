@@ -10,8 +10,8 @@ import UIKit
 import GTToast
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    private let animations = ["Alpha", "Scale", "Bottom Slide In", "Left Slide In", "Right Slide In", "Left to Right", "Right to Left"]
-    private var toast: GTToastView!
+    fileprivate let animations = ["Alpha", "Scale", "Bottom Slide In", "Left Slide In", "Right Slide In", "Left to Right", "Right to Left"]
+    fileprivate var toast: GTToastView!
     
     @IBOutlet weak var showButton: UIButton!
     @IBOutlet weak var animationPicker: UIPickerView!
@@ -27,21 +27,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        updateImageAlignmentDisplayed(GTToastAlignment.Left)
+        updateImageAlignmentDisplayed(GTToastAlignment.left)
     }
 
-    @IBAction func showToast(sender: AnyObject) {
-        let selectedAnimation = animationPicker.selectedRowInComponent(0)
+    @IBAction func showToast(_ sender: AnyObject) {
+        let selectedAnimation = animationPicker.selectedRow(inComponent: 0)
         
         let config = GTToastConfig(
-            displayInterval: 4,
-            animation: GTToastAnimation(rawValue: selectedAnimation)!.animations(),
             textAlignment: NSTextAlignment(rawValue: textAlignment.selectedSegmentIndex)!,
-            imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!,
-            imageMargins: selectedMargins()
+            animation: GTToastAnimation(rawValue: selectedAnimation)!.animations(),
+            displayInterval: 4,
+            imageMargins: selectedMargins(),
+            imageAlignment: GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!
         )
         
-        let image: UIImage? = showImageSwitch.on ? UIImage(named: "tick") : .None
+        let image: UIImage? = showImageSwitch.isOn ? UIImage(named: "tick") : .none
         
         toast = GTToast.create("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eleifend maximus malesuada. Quisque congue augue vel mauris molestie, nec egestas eros ultrices.",
             config: config,
@@ -49,13 +49,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         toast.show()
     }
     
-    @IBAction func hideToast(sender: AnyObject) {
-        if let toast = toast where toast.displayed {
+    @IBAction func hideToast(_ sender: AnyObject) {
+        if let toast = toast , toast.displayed {
             toast.dismiss()
         }
     }
     
-    private func selectedMargins() -> UIEdgeInsets {
+    fileprivate func selectedMargins() -> UIEdgeInsets {
         return UIEdgeInsets(
             top: textFieldValueToCGFloat(imgMarginTop),
             left: textFieldValueToCGFloat(imgMarginLeft),
@@ -63,40 +63,40 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             right: textFieldValueToCGFloat(imgMarginRight))
     }
     
-    private func textFieldValueToCGFloat(textField: UITextField) -> CGFloat {
-        guard let value = textField.text,  let number = NSNumberFormatter().numberFromString(value) else {
+    fileprivate func textFieldValueToCGFloat(_ textField: UITextField) -> CGFloat {
+        guard let value = textField.text,  let number = NumberFormatter().number(from: value) else {
             return 0
         }
         
         return CGFloat(number)
     }
     
-    @IBAction func imageAlignmentSelected(sender: AnyObject) {
+    @IBAction func imageAlignmentSelected(_ sender: AnyObject) {
         updateImageAlignmentDisplayed(GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!)
     }
     
-    @IBAction func switchDefaultImageMargins(sender: AnyObject) {
+    @IBAction func switchDefaultImageMargins(_ sender: AnyObject) {
         let control = sender as! UISwitch
         
-        enableImageMarginTextFields(!control.on)
+        enableImageMarginTextFields(!control.isOn)
         
         updateImageAlignmentDisplayed(GTToastAlignment(rawValue: imageAlignment.selectedSegmentIndex)!)
     }
     
-    private func enableImageMarginTextFields(enabled: Bool) {
-        imgMarginTop.enabled = enabled
-        imgMarginLeft.enabled = enabled
-        imgMarginBottom.enabled = enabled
-        imgMarginRight.enabled = enabled
+    fileprivate func enableImageMarginTextFields(_ enabled: Bool) {
+        imgMarginTop.isEnabled = enabled
+        imgMarginLeft.isEnabled = enabled
+        imgMarginBottom.isEnabled = enabled
+        imgMarginRight.isEnabled = enabled
     }
     
-    private func updateImageAlignmentDisplayed(alignment: GTToastAlignment) {
+    fileprivate func updateImageAlignmentDisplayed(_ alignment: GTToastAlignment) {
         let insets = alignment.defaultInsets()
         
-        imgMarginTop.text = String(insets.top)
-        imgMarginLeft.text = String(insets.left)
-        imgMarginBottom.text = String(insets.bottom)
-        imgMarginRight.text = String(insets.right)
+        imgMarginTop.text = String(describing: insets.top)
+        imgMarginLeft.text = String(describing: insets.left)
+        imgMarginBottom.text = String(describing: insets.bottom)
+        imgMarginRight.text = String(describing: insets.right)
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,15 +104,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     // MARK: Picker view
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return animations.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return animations[row]
     }
 }

@@ -30,14 +30,14 @@ class GTToastTests: XCTestCase {
     }
     
     func testCreate_shouldCreateWithAppropriateConfig() {
-        let config = GTToastConfig(textColor: UIColor.blueColor())
+        let config = GTToastConfig(textColor: UIColor.blue)
         let toastFactory = GTToast(config: config)
         let message = "Test Message"
         
         let toastView = toastFactory.create(message)
         
         let label = toastView.subviews[0] as! UILabel
-        XCTAssertTrue(CGColorEqualToColor(label.textColor.CGColor, UIColor.blueColor().CGColor))
+        XCTAssertEqual(label.textColor, UIColor.blue)
     }
     
     func testCreate_shouldAllowBottomMarginToBeSpecified() {
@@ -57,17 +57,17 @@ class GTToastTests: XCTestCase {
         XCTAssertEqual(imageView.image, image)
     }
     
-    private func expectedFrame(message: String, bottomMargin: CGFloat = 5.0) -> CGRect {
-        let screenSize = UIScreen.mainScreen().bounds.size
+    fileprivate func expectedFrame(_ message: String, bottomMargin: CGFloat = 5.0) -> CGRect {
+        let screenSize = UIScreen.main.bounds.size
         
         let margin: CGFloat = 5.0
         let contentInset: CGFloat = 3.0
         let maxLabelWidth = screenSize.width - 2 * margin - 2 * contentInset
         
-        let labelSize = NSString(string: message).boundingRectWithSize(
-                CGSizeMake(maxLabelWidth, 0),
-                options: NSStringDrawingOptions.UsesLineFragmentOrigin,
-                attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12.0)],
+        let labelSize = NSString(string: message).boundingRect(
+                with: CGSize(width: maxLabelWidth, height: 0),
+                options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 12.0)],
                 context: nil)
             .size
         
@@ -76,6 +76,6 @@ class GTToastTests: XCTestCase {
         let yOffset: CGFloat = screenSize.height - height - bottomMargin
         let xOffset: CGFloat = ceil((screenSize.width - width) / 2.0)
         
-        return CGRectMake(xOffset, yOffset, width, height)
+        return CGRect(x: xOffset, y: yOffset, width: width, height: height)
     }
 }
