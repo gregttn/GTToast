@@ -6,31 +6,31 @@
 //
 //
 
-@available(*, deprecated, message="Use subclasses of GTAnimation directly instead.")
+@available(*, deprecated, message: "Use subclasses of GTAnimation directly instead.")
 public enum GTToastAnimation: Int {
-    case Alpha
-    case Scale
-    case BottomSlideIn
-    case LeftSlideIn
-    case RightSlideIn
-    case LeftInRightOut
-    case RightInLeftOut
+    case alpha
+    case scale
+    case bottomSlideIn
+    case leftSlideIn
+    case rightSlideIn
+    case leftInRightOut
+    case rightInLeftOut
     
     public func animations() -> GTAnimation {
         switch self{
-        case .Alpha:
+        case .alpha:
             return GTAlphaAnimation()
-        case .BottomSlideIn:
+        case .bottomSlideIn:
             return GTBottomSlideInAnimation()
-        case .LeftSlideIn :
+        case .leftSlideIn :
             return GTLeftSlideInAnimation()
-        case .RightSlideIn :
+        case .rightSlideIn :
             return GTRightSlideInAnimation()
-        case .Scale :
+        case .scale :
             return GTScaleAnimation()
-        case .LeftInRightOut:
+        case .leftInRightOut:
             return GTLeftInRightOutAnimation()
-        case .RightInLeftOut:
+        case .rightInLeftOut:
             return GTRightInLeftOutAnimation()
         }
     }

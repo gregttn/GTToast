@@ -6,33 +6,33 @@
 //
 //
 
-public class GTToastView: UIView, GTAnimatable {
-    private let animationOffset: CGFloat = 20
-    private let margin: CGFloat = 5
+open class GTToastView: UIView, GTAnimatable {
+    fileprivate let animationOffset: CGFloat = 20
+    fileprivate let margin: CGFloat = 5
     
-    private let config: GTToastConfig
-    private let image: UIImage?
-    private let message: String
+    fileprivate let config: GTToastConfig
+    fileprivate let image: UIImage?
+    fileprivate let message: String
     
-    private var messageLabel: UILabel!
-    private var imageView: UIImageView!
+    fileprivate var messageLabel: UILabel!
+    fileprivate var imageView: UIImageView!
     
-    private lazy var contentSize: CGSize = { [unowned self] in
-        return CGSizeMake(self.frame.size.width - self.config.contentInsets.leftAndRight, self.frame.size.height - self.config.contentInsets.topAndBottom)
+    fileprivate lazy var contentSize: CGSize = { [unowned self] in
+        return CGSize(width: self.frame.size.width - self.config.contentInsets.leftAndRight, height: self.frame.size.height - self.config.contentInsets.topAndBottom)
     }()
   
-    private lazy var imageSize: CGSize =  { [unowned self] in
+    fileprivate lazy var imageSize: CGSize =  { [unowned self] in
         guard let image = self.image else {
-            return CGSizeZero
+            return CGSize.zero
         }
         
-        return CGSizeMake(
-            min(image.size.width, self.config.maxImageSize.width),
-            min(image.size.height, self.config.maxImageSize.height)
+        return CGSize(
+            width: min(image.size.width, self.config.maxImageSize.width),
+            height: min(image.size.height, self.config.maxImageSize.height)
         )
     }()
     
-    override public var frame: CGRect {
+    override open var frame: CGRect {
         didSet {
             guard let _ = messageLabel else {
                 return
@@ -48,7 +48,7 @@ public class GTToastView: UIView, GTAnimatable {
         }
     }
     
-    public var displayed: Bool {
+    open var displayed: Bool {
         return superview != nil
     }
     
@@ -60,13 +60,13 @@ public class GTToastView: UIView, GTAnimatable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(message: String, config: GTToastConfig, image: UIImage? = .None) {
+    public init(message: String, config: GTToastConfig, image: UIImage? = .none) {
         self.config = config
         self.message = message
         self.image = image
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         
-        self.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
+        self.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         self.backgroundColor = config.backgroundColor
         self.layer.cornerRadius = config.cornerRadius
         
@@ -81,49 +81,49 @@ public class GTToastView: UIView, GTAnimatable {
     }
     
     // MARK: creating views
-    private func createLabel() -> UILabel {
+    fileprivate func createLabel() -> UILabel {
         let label = UILabel()
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         label.textAlignment = config.textAlignment
         label.textColor = config.textColor
         label.font = config.font
         label.numberOfLines = 0
         label.text = message
-        label.autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
+        label.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         
         return label
     }
     
-    private func createImageView() -> UIImageView {
+    fileprivate func createImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         
         return imageView
     }
     
-    private func createLabelFrame() -> CGRect {
+    fileprivate func createLabelFrame() -> CGRect {
         var x: CGFloat = config.contentInsets.left
         var y: CGFloat = config.contentInsets.top
         var width: CGFloat = contentSize.width
         var height: CGFloat = contentSize.height
         
         switch config.imageAlignment {
-        case .Left:
+        case .left:
             x += imageWithMarginsSize().width
             fallthrough
-        case .Right:
+        case .right:
             width -= imageWithMarginsSize().width
-        case .Top:
+        case .top:
             y += config.imageMargins.topAndBottom + imageSize.height
             fallthrough
-        case .Bottom:
+        case .bottom:
             height = height - config.imageMargins.topAndBottom - imageSize.height
         }
         
-        return CGRectMake(x, y, width, height)
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
-    private func createImageViewFrame() -> CGRect {
+    fileprivate func createImageViewFrame() -> CGRect {
         let allInsets = config.contentInsets + config.imageMargins
         var x: CGFloat = allInsets.left
         var y: CGFloat = allInsets.top
@@ -131,63 +131,63 @@ public class GTToastView: UIView, GTAnimatable {
         var height: CGFloat = imageSize.height
         
         switch config.imageAlignment {
-        case .Right:
+        case .right:
             x = frame.width - allInsets.right - imageSize.width
             fallthrough
-        case .Left:
+        case .left:
             height = contentSize.height - config.imageMargins.topAndBottom
-        case .Bottom:
+        case .bottom:
             y += calculateLabelSize().height
             fallthrough
-        case .Top:
+        case .top:
             width = frame.size.width - allInsets.leftAndRight
         }
         
-        return CGRectMake(x, y, width, height)
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
     // MARK: size and frame calculation
-    public override func sizeThatFits(size: CGSize) -> CGSize {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
         let imageLocationAdjustment = imageLocationSizeAdjustment()
         let labelSize = calculateLabelSize()
         
         let height = labelSize.height + config.contentInsets.topAndBottom + imageLocationAdjustment.height
         let width = labelSize.width + config.contentInsets.leftAndRight + imageLocationAdjustment.width
         
-        return CGSizeMake(width, height)
+        return CGSize(width: width, height: height)
     }
     
-    private func calculateLabelSize() -> CGSize {
+    fileprivate func calculateLabelSize() -> CGSize {
         let imageLocationAdjustment = imageLocationSizeAdjustment()
-        let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = UIScreen.main.bounds
         let maxLabelWidth = screenSize.width - 2 * margin - config.contentInsets.leftAndRight - imageLocationAdjustment.width
-        let size = config.font.sizeFor(message, constrain: CGSizeMake(maxLabelWidth, 0))
+        let size = config.font.sizeFor(message, constrain: CGSize(width: maxLabelWidth, height: 0))
         
-        return CGSizeMake(ceil(size.width), ceil(size.height))
+        return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
     
-    private func imageLocationSizeAdjustment() -> CGSize {
+    fileprivate func imageLocationSizeAdjustment() -> CGSize {
         switch config.imageAlignment {
-        case .Left, .Right:
-            return CGSizeMake(imageWithMarginsSize().width, 0)
-        case .Top, .Bottom:
-            return CGSizeMake(0, imageWithMarginsSize().height)
+        case .left, .right:
+            return CGSize(width: imageWithMarginsSize().width, height: 0)
+        case .top, .bottom:
+            return CGSize(width: 0, height: imageWithMarginsSize().height)
         }
     }
     
-    private func imageWithMarginsSize() -> CGSize {
+    fileprivate func imageWithMarginsSize() -> CGSize {
         guard let _ = image else {
-            return CGSizeZero
+            return CGSize.zero
         }
         
-        return CGSizeMake(
-            imageSize.width + config.imageMargins.leftAndRight,
-            imageSize.height + config.imageMargins.topAndBottom
+        return CGSize(
+            width: imageSize.width + config.imageMargins.leftAndRight,
+            height: imageSize.height + config.imageMargins.topAndBottom
         )
     }
     
-    public func show() {
-        guard let window = UIApplication.sharedApplication().windows.first else {
+    open func show() {
+        guard let window = UIApplication.shared.windows.first else {
             return
         }
         
@@ -198,7 +198,7 @@ public class GTToastView: UIView, GTAnimatable {
         }
     }
     
-    public func dismiss() {
+    open func dismiss() {
         self.config.animation.show(self)
         layer.removeAllAnimations()
         
@@ -211,7 +211,7 @@ public class GTToastView: UIView, GTAnimatable {
 internal protocol GTAnimatable {}
 
 internal extension GTAnimatable {
-    func animateAll(view: UIView, interval: NSTimeInterval, animations: GTAnimation) {
+    func animateAll(_ view: UIView, interval: TimeInterval, animations: GTAnimation) {
         animations.before(view)
         
         animate(0, animations: { animations.show(view) }, completion: { _ in
@@ -225,12 +225,12 @@ internal extension GTAnimatable {
         )
     }
     
-    private func animate(interval: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)?) {
-        UIView.animateWithDuration(0.6,
+    fileprivate func animate(_ interval: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)?) {
+        UIView.animate(withDuration: 0.6,
             delay: interval,
             usingSpringWithDamping: 0.8,
             initialSpringVelocity: 0,
-            options: [.CurveEaseInOut, .AllowUserInteraction],
+            options: .allowUserInteraction,
             animations: animations,
             completion: completion)
     }
